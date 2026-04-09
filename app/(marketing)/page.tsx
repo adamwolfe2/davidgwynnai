@@ -310,7 +310,7 @@ export default function HomePage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden hero-gradient min-h-[85vh] flex flex-col items-center justify-center text-center px-6 pt-16 pb-20">
+      <section className="relative isolate overflow-hidden hero-gradient min-h-[85vh] flex flex-col items-center justify-center text-center px-6 pt-16 pb-20">
         <GridBackground variant="blue" glowPosition="top-center" />
         <motion.div
           initial={{ opacity: 0, y: 12 }}
@@ -372,7 +372,7 @@ export default function HomePage() {
       <LogoTicker />
 
       {/* SERVICES */}
-      <section className="relative overflow-hidden bg-white py-20 px-6">
+      <section className="relative isolate overflow-hidden bg-white py-20 px-6">
         <GridBackground variant="blue" glowPosition="top-right" />
         <div className="max-w-5xl mx-auto">
           <Reveal>
@@ -408,14 +408,14 @@ export default function HomePage() {
       <section className="bg-white py-20 px-6 border-t border-[#f0f0f0]">
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
           <Reveal>
-            <div className="rounded-2xl overflow-hidden shadow-sm">
+            <div className="rounded-2xl overflow-hidden shadow-sm" style={{ maxHeight: "380px" }}>
               <Image
                 src="/images/testimonials/INhUQ15tVRlexqBYDVn8V3f1QZA.avif"
                 alt="Executive navigating AI challenges"
                 width={560}
-                height={420}
+                height={380}
                 unoptimized
-                className="w-full object-cover"
+                className="w-full h-full object-cover object-top"
               />
             </div>
           </Reveal>
@@ -477,7 +477,7 @@ export default function HomePage() {
       </section>
 
       {/* WHY CHOOSE US */}
-      <section className="relative overflow-hidden bg-white py-20 px-6 border-t border-[#f0f0f0]">
+      <section className="relative isolate overflow-hidden bg-white py-20 px-6 border-t border-[#f0f0f0]">
         <GridBackground variant="purple" glowPosition="top-left" />
         <div className="max-w-5xl mx-auto">
           <Reveal>
@@ -677,7 +677,7 @@ export default function HomePage() {
       </section>
 
       {/* QUIZ */}
-      <section className="relative overflow-hidden bg-[#f8fafc] py-20 px-6 border-t border-[#f0f0f0]">
+      <section className="relative isolate overflow-hidden bg-[#f8fafc] py-20 px-6 border-t border-[#f0f0f0]">
         <GridBackground variant="blue" glowPosition="top-center" />
         <div className="max-w-3xl mx-auto">
           <Reveal>
@@ -693,12 +693,13 @@ export default function HomePage() {
             </p>
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="rounded-2xl overflow-hidden border border-[#e2e8f0] bg-white shadow-sm">
+            {/* Clip Typeform's header bar by shifting the iframe up inside an overflow-hidden container */}
+            <div className="rounded-2xl overflow-hidden border border-[#e2e8f0] bg-white shadow-sm" style={{ height: "500px" }}>
               <iframe
                 src={TYPEFORM_URL}
                 width="100%"
-                height="500"
-                style={{ border: "none", display: "block" }}
+                height="570"
+                style={{ border: "none", display: "block", marginTop: "-70px" }}
                 title="AI Readiness Quiz"
                 allow="camera; microphone; autoplay; encrypted-media;"
               />

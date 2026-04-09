@@ -333,7 +333,7 @@ export default function HomePage() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-base text-[#292929]/65 max-w-2xl mx-auto leading-relaxed mb-3"
+          className="text-base text-[#292929]/65 max-w-2xl mx-auto leading-relaxed mb-6 sm:mb-3"
         >
           I build Decision Defensibility Infrastructure for executives and boards in banks, insurers, and health systems, so when the scrutiny comes, the record is already there.
         </motion.p>
@@ -341,7 +341,7 @@ export default function HomePage() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.25 }}
-          className="text-sm text-[#292929]/45 max-w-xl mx-auto leading-relaxed mb-10"
+          className="hidden sm:block text-sm text-[#292929]/45 max-w-xl mx-auto leading-relaxed mb-10"
         >
           With over 20 years of experience in regulated industries, I have watched organizations deploy AI with confidence and face regulators, auditors, and boards without a single document that explains why a decision was made, who owned it, or what controls were in force. That gap is the liability. I close it.
         </motion.p>
@@ -355,13 +355,13 @@ export default function HomePage() {
             href={BOOK_CALL_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#578cff] text-white text-sm font-semibold hover:bg-[#4070e0] hover:scale-[1.03] active:scale-[0.97] transition-all shadow-md"
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#578cff] text-white text-sm font-semibold hover:bg-[#4070e0] hover:scale-[1.03] active:scale-[0.97] transition-all shadow-md w-full sm:w-auto justify-center"
           >
             Book a Call <ArrowRight className="w-4 h-4" />
           </Link>
           <Link
             href="/how-it-works"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[#578cff]/30 text-[#578cff] text-sm font-medium hover:bg-[#578cff]/5 transition-all"
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-[#578cff]/30 text-[#578cff] text-sm font-medium hover:bg-[#578cff]/5 transition-all w-full sm:w-auto justify-center"
           >
             See How It Works
           </Link>
@@ -372,7 +372,7 @@ export default function HomePage() {
       <LogoTicker />
 
       {/* SERVICES */}
-      <section className="relative overflow-hidden bg-white py-20 px-6">
+      <section className="relative overflow-hidden bg-white py-14 md:py-20 px-6">
         <div className="max-w-5xl mx-auto">
           <Reveal>
             <SectionTag>Services</SectionTag>
@@ -391,7 +391,7 @@ export default function HomePage() {
               { n: "04", title: "Governance Readiness for Regulated Industries", body: "OCC model risk alignment, state insurance regulatory response, healthcare AI accountability, for organizations that need to demonstrate governance, not just describe it.", demo: <ServiceDemo4 />, delay: 0.1 },
             ].map(({ n, title, body, demo, delay }) => (
               <Reveal key={n} delay={delay}>
-                <div className="bg-white rounded-2xl border border-[#e2e8f0] p-7 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full">
+                <div className="bg-white rounded-2xl border border-[#e2e8f0] p-5 md:p-7 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full">
                   <p className="text-xs font-semibold text-[#578cff] mb-2">{n}</p>
                   <h3 className="text-base font-bold text-[#292929] mb-3">{title}</h3>
                   <p className="text-sm text-[#292929]/60 leading-relaxed">{body}</p>
@@ -404,8 +404,8 @@ export default function HomePage() {
       </section>
 
       {/* IS THIS YOU */}
-      <section className="bg-white py-20 px-6 border-t border-[#f0f0f0]">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
+      <section className="bg-white py-14 md:py-20 px-6 border-t border-[#f0f0f0]">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-14 items-center">
           <Reveal>
             <div className="rounded-2xl overflow-hidden shadow-sm" style={{ maxHeight: "380px" }}>
               <Image
@@ -436,7 +436,7 @@ export default function HomePage() {
               href={BOOK_CALL_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#578cff] text-white text-sm font-semibold hover:bg-[#4070e0] transition-all"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#578cff] text-white text-sm font-semibold hover:bg-[#4070e0] transition-all w-full sm:w-auto justify-center"
             >
               Book a Call <ArrowRight className="w-4 h-4" />
             </Link>
@@ -445,12 +445,12 @@ export default function HomePage() {
       </section>
 
       {/* INTRODUCTION */}
-      <section className="bg-white py-16 px-6 border-t border-[#f0f0f0]">
+      <section className="bg-white py-12 md:py-16 px-6 border-t border-[#f0f0f0]">
         <div className="max-w-4xl mx-auto text-center">
           <Reveal>
             <SectionTag>Introduction</SectionTag>
             <p
-              className="text-2xl md:text-3xl font-semibold text-[#292929] leading-[1.5]"
+              className="text-xl md:text-2xl lg:text-3xl font-semibold text-[#292929] leading-[1.6]"
               style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}
             >
               AI Advisors, LLC delivers{" "}
@@ -476,7 +476,7 @@ export default function HomePage() {
       </section>
 
       {/* WHY CHOOSE US */}
-      <section className="bg-white py-20 px-6 border-t border-[#f0f0f0]">
+      <section className="bg-white py-14 md:py-20 px-6 border-t border-[#f0f0f0]">
         <div className="max-w-5xl mx-auto">
           <Reveal>
             <SectionTag>Why Us</SectionTag>
@@ -494,7 +494,7 @@ export default function HomePage() {
               { icon: Handshake, title: "Aligned Incentives", body: "I work like a deal partner, not a contractor. Every advisory engagement and implementation is structured around your business outcomes, valuation, and long-term growth.", delay: 0.15 },
             ].map(({ icon: Icon, title, body, delay }) => (
               <Reveal key={title} delay={delay}>
-                <div className="bg-[#f8fafc] rounded-2xl border border-[#e2e8f0] p-7 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 h-full">
+                <div className="bg-[#f8fafc] rounded-2xl border border-[#e2e8f0] p-5 md:p-7 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 h-full">
                   <div className="w-10 h-10 rounded-xl bg-[#578cff]/10 flex items-center justify-center mb-4">
                     <Icon className="w-5 h-5 text-[#578cff]" />
                   </div>
@@ -508,7 +508,7 @@ export default function HomePage() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="bg-white py-20 px-6 border-t border-[#f0f0f0]">
+      <section className="bg-white py-14 md:py-20 px-6 border-t border-[#f0f0f0]">
         <div className="max-w-6xl mx-auto">
           <Reveal>
             <SectionTag>Testimonials</SectionTag>
@@ -546,9 +546,9 @@ export default function HomePage() {
             ))}
           </div>
           <Reveal delay={0.1}>
-            <div className="bg-[#f8fafc] rounded-2xl border border-[#e2e8f0] p-10 text-center max-w-3xl mx-auto">
+            <div className="bg-[#f8fafc] rounded-2xl border border-[#e2e8f0] p-6 md:p-10 text-center max-w-3xl mx-auto">
               <p className="text-yellow-400 text-2xl mb-5">★★★★★</p>
-              <blockquote className="text-lg md:text-xl text-[#292929] font-medium leading-relaxed mb-6">
+              <blockquote className="text-base md:text-xl text-[#292929] font-medium leading-relaxed mb-6">
                 &ldquo;David&apos;s innovative capital markets approach at WavePhone transformed how we delivered digital data over broadcast TV signals. His expertise directly increased revenue, created jobs, and led to a successful $18 million NASDAQ IPO. Beyond raising capital, David was a true partner, transforming both our business and my career.&rdquo;
               </blockquote>
               <div className="flex items-center justify-center gap-3">
@@ -566,7 +566,7 @@ export default function HomePage() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section className="bg-white py-20 px-6 border-t border-[#f0f0f0]">
+      <section className="bg-white py-14 md:py-20 px-6 border-t border-[#f0f0f0]">
         <div className="max-w-2xl mx-auto">
           <Reveal>
             <SectionTag>How it works</SectionTag>
@@ -606,8 +606,8 @@ export default function HomePage() {
       </section>
 
       {/* MEET DAVID */}
-      <section id="about" className="bg-white py-20 px-6 border-t border-[#f0f0f0]">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-14 items-start">
+      <section id="about" className="bg-white py-14 md:py-20 px-6 border-t border-[#f0f0f0]">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-14 items-start">
           <Reveal>
             <div className="rounded-2xl overflow-hidden">
               <Image src="/images/U9z34gdlWjkgtbkZ1DETif8Hg8M.webp" alt="David Gwynn" width={520} height={480} unoptimized className="w-full object-cover object-top" />
@@ -644,7 +644,7 @@ export default function HomePage() {
               href="https://www.linkedin.com/in/davidwgwynn/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#578cff] text-white text-sm font-semibold hover:bg-[#4070e0] transition-all"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#578cff] text-white text-sm font-semibold hover:bg-[#4070e0] transition-all"
             >
               LinkedIn <ArrowRight className="w-4 h-4" />
             </Link>
@@ -654,7 +654,7 @@ export default function HomePage() {
 
       {/* STATS */}
       <section className="bg-[#f8fafc] border-t border-b border-[#e2e8f0] py-14 px-6">
-        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center">
           {[
             { to: 30, suffix: "+", label: "Years of Leadership in Technology & Strategy" },
             { to: 18, suffix: "M", label: "NASDAQ IPO Value Delivered at WavePhone" },
@@ -663,7 +663,7 @@ export default function HomePage() {
           ].map(({ to, suffix, label }) => (
             <Reveal key={label}>
               <div
-                className="text-4xl md:text-5xl font-bold text-[#292929] mb-2"
+                className="text-3xl md:text-5xl font-bold text-[#292929] mb-2"
                 style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}
               >
                 <CountUp to={to} suffix={suffix} />
@@ -675,7 +675,7 @@ export default function HomePage() {
       </section>
 
       {/* QUIZ */}
-      <section className="bg-[#f8fafc] py-20 px-6 border-t border-[#f0f0f0]">
+      <section className="bg-[#f8fafc] py-14 md:py-20 px-6 border-t border-[#f0f0f0]">
         <div className="max-w-3xl mx-auto">
           <Reveal>
             <SectionTag>Quiz</SectionTag>
@@ -706,7 +706,7 @@ export default function HomePage() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-white py-20 px-6">
+      <section className="bg-white py-14 md:py-20 px-6">
         <div className="max-w-2xl mx-auto">
           <Reveal>
             <SectionTag>FAQ&apos;s</SectionTag>
@@ -725,7 +725,7 @@ export default function HomePage() {
 
       {/* FINAL CTA */}
       <section className="px-6 pb-12">
-        <div className="relative overflow-hidden cta-gradient rounded-3xl py-16 px-8 text-center max-w-6xl mx-auto">
+        <div className="relative overflow-hidden cta-gradient rounded-3xl py-12 md:py-16 px-6 md:px-8 text-center max-w-6xl mx-auto">
           <Reveal>
             <h2
               className="text-3xl md:text-4xl font-bold text-white mb-5 leading-tight max-w-2xl mx-auto"
@@ -741,7 +741,7 @@ export default function HomePage() {
               href={BOOK_CALL_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-[#578cff] text-sm font-semibold hover:bg-[#f0f6ff] hover:scale-[1.03] transition-all shadow-xl"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-[#578cff] text-sm font-semibold hover:bg-[#f0f6ff] hover:scale-[1.03] transition-all shadow-xl w-full sm:w-auto justify-center"
             >
               Book a Call <ArrowRight className="w-4 h-4" />
             </Link>

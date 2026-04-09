@@ -30,7 +30,7 @@ export function Nav() {
           className={`pointer-events-auto w-full transition-all duration-300 ease-in-out ${
             scrolled
               ? "max-w-4xl rounded-2xl border border-[#e2e8f0] bg-white/85 backdrop-blur-xl shadow-[0_2px_20px_rgba(0,0,0,0.06)]"
-              : "max-w-6xl bg-white/70 backdrop-blur-sm"
+              : "max-w-6xl rounded-xl bg-white/70 backdrop-blur-sm"
           }`}
         >
           <div className="flex items-center justify-between h-14 px-5">

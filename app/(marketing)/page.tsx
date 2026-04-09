@@ -344,7 +344,7 @@ export default function HomePage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative isolate overflow-hidden hero-gradient min-h-[85vh] flex flex-col items-center justify-center text-center px-6 pt-16 pb-20">
+      <section className="relative isolate overflow-hidden hero-gradient min-h-[85vh] flex flex-col items-center justify-center text-center px-6 pt-20 sm:pt-16 pb-20">
         <GridBackground variant="blue" glowPosition="top-center" />
         <motion.div
           initial={{ opacity: 0, y: 12 }}
@@ -383,19 +383,19 @@ export default function HomePage() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex flex-col sm:flex-row items-center gap-3"
+          className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto max-w-xs sm:max-w-none mx-auto sm:mx-0"
         >
           <Link
             href={BOOK_CALL_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#578cff] text-white text-sm font-semibold hover:bg-[#4070e0] hover:scale-[1.03] active:scale-[0.97] transition-all shadow-md w-full sm:w-auto justify-center"
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#578cff] text-white text-sm font-semibold hover:bg-[#4070e0] hover:scale-[1.03] active:scale-[0.97] transition-all shadow-md w-full sm:w-auto justify-center"
           >
             Book a Call <ArrowRight className="w-4 h-4" />
           </Link>
           <Link
             href="/how-it-works"
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-[#578cff]/30 text-[#578cff] text-sm font-medium hover:bg-[#578cff]/5 transition-all w-full sm:w-auto justify-center"
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl border border-[#578cff]/30 text-[#578cff] text-sm font-medium hover:bg-[#578cff]/5 transition-all w-full sm:w-auto justify-center"
           >
             See How It Works
           </Link>
@@ -470,7 +470,7 @@ export default function HomePage() {
               href={BOOK_CALL_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#578cff] text-white text-sm font-semibold hover:bg-[#4070e0] transition-all w-full sm:w-auto justify-center"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#578cff] text-white text-sm font-semibold hover:bg-[#4070e0] transition-all w-full sm:w-auto justify-center"
             >
               Book a Call <ArrowRight className="w-4 h-4" />
             </Link>
@@ -541,11 +541,11 @@ export default function HomePage() {
             <AnimateWords
               text="What our happy clients say about our services"
 
-              className="text-3xl md:text-4xl font-bold text-[#292929] text-center max-w-lg mx-auto mb-14"
+              className="text-3xl md:text-4xl font-bold text-[#292929] text-center max-w-lg mx-auto mb-8 md:mb-14"
               delay={0.05}
             />
           </Reveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 mb-8 md:mb-10">
             {[
               { name: "Jimmy Bogoff", role: "Founder & CEO at Fearless Influence", photo: "/images/testimonials/3Mpvf2kjeOX9rhi4A033R1O5I.webp", text: "I had the good fortune of working with David for several years to grow and develop our Eugene territory. He is a determined and persistent account executive and an extremely effective networker. David uses his networking connections to open up new business relationships.", delay: 0.05 },
               { name: "Jim Dyck", role: "Digital Sales Manager at Nexstar Media Group", photo: "/images/testimonials/48biUygDiwbZYSpDjOkDbWcvg.webp", text: "I had the privilege of working with David for several years. David is a great networker and seems to have his hands in everything in the community. He has a great ability to connect multiple moving parts to make seemingly complex ideas understandable.", delay: 0.1 },
@@ -670,7 +670,7 @@ export default function HomePage() {
               href="https://www.linkedin.com/in/davidwgwynn/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#578cff] text-white text-sm font-semibold hover:bg-[#4070e0] transition-all"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#578cff] text-white text-sm font-semibold hover:bg-[#4070e0] transition-all"
             >
               LinkedIn <ArrowRight className="w-4 h-4" />
             </Link>
@@ -767,7 +767,7 @@ export default function HomePage() {
               href={BOOK_CALL_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-[#578cff] text-sm font-semibold hover:bg-[#f0f6ff] hover:scale-[1.03] transition-all shadow-xl w-full sm:w-auto justify-center"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-white text-[#578cff] text-sm font-semibold hover:bg-[#f0f6ff] hover:scale-[1.03] transition-all shadow-xl w-full sm:w-auto justify-center"
             >
               Book a Call <ArrowRight className="w-4 h-4" />
             </Link>

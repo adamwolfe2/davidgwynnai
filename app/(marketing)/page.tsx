@@ -323,9 +323,11 @@ export default function HomePage() {
           className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#292929] leading-[1.1] tracking-tight max-w-4xl mb-6 text-center"
           style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}
         >
-          <AnimateWords text="AI Decisions Get Examined." delay={0.05} className="block" />
-          <AnimateWords text="The Leaders Behind Them Should Never" delay={0.3} className="block" />
-          <AnimateWords text="Stand Alone." delay={0.55} className="block" />
+          <AnimateWords
+            text="AI Decisions Get Examined. The Leaders Behind Them Should Never Stand Alone."
+            delay={0.05}
+            className="leading-[1.1]"
+          />
         </h1>
         <motion.p
           initial={{ opacity: 0, y: 16 }}

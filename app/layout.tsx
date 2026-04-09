@@ -33,9 +33,9 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/opengraph-image",
-        width: 1200,
-        height: 630,
+        url: "/og-image.png",
+        width: 2000,
+        height: 918,
         alt: "AI Advisors LLC — AI Governance & Decision Defensibility",
       },
     ],
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     title: "David W. Gwynn | AI Advisors, LLC",
     description:
       "AI Governance & Decision Defensibility Infrastructure for banks, insurers, and health systems.",
-    images: ["/opengraph-image"],
+    images: ["/og-image.png"],
   },
 }
 

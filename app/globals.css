@@ -28,9 +28,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Hero gradient: black → brand blue */
+/* Hero: very subtle sky-blue at top fading to white */
 .hero-gradient {
-  background: linear-gradient(135deg, #000000 0%, #578cff 100%);
+  background: linear-gradient(180deg, #dce8ff 0%, #eef4ff 25%, #f5f8ff 55%, #ffffff 100%);
+}
+
+/* Dark gradient for quiz/CTA accent sections */
+.hero-gradient-dark {
+  background: linear-gradient(135deg, #0a1628 0%, #1a3a6e 50%, #578cff 100%);
 }
 
 /* CTA gradient: light blue → brand blue */

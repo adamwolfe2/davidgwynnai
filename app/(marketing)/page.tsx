@@ -35,14 +35,14 @@ function StarRating() {
     <div className="flex items-center justify-center gap-2 mb-6">
       <div className="flex -space-x-2">
         {["/images/testimonials/3Mpvf2kjeOX9rhi4A033R1O5I.webp", "/images/testimonials/48biUygDiwbZYSpDjOkDbWcvg.webp", "/images/testimonials/INhUQ15tVRlexqBYDVn8V3f1QZA.avif"].map((src, i) => (
-          <div key={i} className="w-7 h-7 rounded-full border-2 border-white overflow-hidden">
+          <div key={i} className="w-7 h-7 rounded-full border-2 border-white overflow-hidden shadow-sm">
             <Image src={src} alt="Client" width={28} height={28} unoptimized className="w-full h-full object-cover" />
           </div>
         ))}
       </div>
-      <div className="flex items-center gap-1">
-        <span className="text-yellow-300 text-sm">★★★★★</span>
-        <span className="text-xs text-white/50 ml-1">5.0 · Trusted by executives</span>
+      <div className="flex items-center gap-1.5">
+        <span className="text-yellow-500 text-sm">★★★★★</span>
+        <span className="text-xs text-[#292929]/50 ml-0.5">4.7/5 · 300+ businesses worked</span>
       </div>
     </div>
   )
@@ -159,28 +159,28 @@ function FaqAccordion() {
 export default function HomePage() {
   return (
     <>
-      {/* HERO */}
-      <section className="hero-gradient min-h-[92vh] flex flex-col items-center justify-center text-center px-6 py-24">
-        <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="text-[10px] font-semibold tracking-[0.2em] uppercase text-white/50 mb-8">
+      {/* HERO — white bg, barely blue gradient at top */}
+      <section className="hero-gradient min-h-[85vh] flex flex-col items-center justify-center text-center px-6 pt-16 pb-20">
+        <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="text-[10px] font-semibold tracking-[0.2em] uppercase text-[#578cff]/70 mb-6">
           Decision Defensibility Infrastructure
         </motion.p>
         <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }}>
           <StarRating />
         </motion.div>
-        <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }} className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight max-w-4xl mb-6" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}>
+        <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }} className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#292929] leading-[1.1] tracking-tight max-w-4xl mb-6" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}>
           AI Decisions Get Examined.<br />The Leaders Behind Them Should Never Stand Alone.
         </motion.h1>
-        <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.25 }} className="text-base text-white/70 max-w-2xl mx-auto leading-relaxed mb-3">
+        <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.25 }} className="text-base text-[#292929]/65 max-w-2xl mx-auto leading-relaxed mb-3">
           I build Decision Defensibility Infrastructure for executives and boards in banks, insurers, and health systems — so when the scrutiny comes, the record is already there.
         </motion.p>
-        <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }} className="text-sm text-white/45 max-w-xl mx-auto leading-relaxed mb-10">
+        <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }} className="text-sm text-[#292929]/45 max-w-xl mx-auto leading-relaxed mb-10">
           With over 20 years of experience in regulated industries, I&apos;ve watched organizations deploy AI with confidence — and face regulators, auditors, and boards without a single document that explains why a decision was made, who owned it, or what controls were in force. That gap is the liability. I close it.
         </motion.p>
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.35 }} className="flex flex-col sm:flex-row items-center gap-3">
-          <Link href={BOOK_CALL_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#578cff] text-white text-sm font-semibold hover:bg-[#4070e0] hover:scale-[1.03] active:scale-[0.97] transition-all shadow-lg shadow-[#578cff]/30">
+          <Link href={BOOK_CALL_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#578cff] text-white text-sm font-semibold hover:bg-[#4070e0] hover:scale-[1.03] active:scale-[0.97] transition-all shadow-md">
             Book a Call <ArrowRight className="w-4 h-4" />
           </Link>
-          <Link href="/how-it-works" className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/25 text-white text-sm font-medium hover:bg-white/10 transition-all">
+          <Link href="/how-it-works" className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[#578cff]/30 text-[#578cff] text-sm font-medium hover:bg-[#578cff]/5 transition-all">
             See How It Works
           </Link>
         </motion.div>
@@ -425,10 +425,10 @@ export default function HomePage() {
       </section>
 
       {/* QUIZ */}
-      <section className="hero-gradient py-20 px-6">
+      <section className="hero-gradient-dark py-20 px-6">
         <div className="max-w-2xl mx-auto text-center">
           <Reveal>
-            <p className="text-[10px] font-semibold tracking-[0.2em] uppercase text-white/40 mb-4">Quiz</p>
+            <p className="text-[10px] font-semibold tracking-[0.2em] uppercase text-white/50 mb-4">Quiz</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-8" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}>Are You Ready?</h2>
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl border border-white/15 p-8 mb-8 text-left">
               <p className="text-sm font-semibold text-white/70 mb-4">Why it Matters</p>

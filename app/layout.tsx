@@ -34,8 +34,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/og-image.png",
-        width: 2000,
-        height: 918,
+        width: 3158,
+        height: 1454,
         alt: "AI Advisors LLC — AI Governance & Decision Defensibility",
       },
     ],

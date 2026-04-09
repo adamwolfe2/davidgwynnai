@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #ffffff;
+  --color-foreground: #292929;
+  --color-muted: #f0f6ff;
+  --color-muted-foreground: #578cff;
+  --color-border: #e2e8f0;
+  --color-primary: #578cff;
+  --color-primary-foreground: #ffffff;
+  --color-navy: #292929;
+  --color-light-blue: #9cc3ff;
+  --color-sky: #f0f6ff;
+  --color-accent: #578cff;
+
+  --font-sans: "Inter", "Helvetica Neue", Helvetica, Arial, ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-background);
+  color: var(--color-foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Hero gradient: black → brand blue */
+.hero-gradient {
+  background: linear-gradient(135deg, #000000 0%, #578cff 100%);
+}
+
+/* CTA gradient: light blue → brand blue */
+.cta-gradient {
+  background: linear-gradient(135deg, #578cff 0%, #9cc3ff 100%);
+}
+
+/* Inverse CTA: light to dark blue */
+.cta-gradient-inv {
+  background: linear-gradient(135deg, #9cc3ff 0%, #578cff 100%);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #578cff 0%, #9cc3ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bg-dot-grid {
+  background-image: radial-gradient(circle, #c8d9ff 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.card-hover {
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.card-hover:hover {
+  box-shadow: 0 8px 32px rgba(87, 140, 255, 0.15);
+  transform: translateY(-2px);
+}

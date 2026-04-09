@@ -73,7 +73,7 @@ function IconPill({
   hoverMotion,
 }: {
   icon: React.ElementType
-  hoverMotion: object
+  hoverMotion: { rotate?: number; y?: number; scale?: number }
 }) {
   const [hovered, setHovered] = useState(false)
   return (
@@ -91,7 +91,7 @@ function IconPill({
       style={{ display: "inline-flex" }}
     >
       <motion.span
-        animate={hovered ? hoverMotion : { rotate: 0, y: 0, scale: 1 }}
+        animate={hovered ? hoverMotion : { rotate: 0, y: 0, scale: 1 } as { rotate?: number; y?: number; scale?: number }}
         transition={{ type: "spring", stiffness: 300, damping: 14 }}
         style={{ display: "inline-flex" }}
       >

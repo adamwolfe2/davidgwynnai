@@ -304,7 +304,7 @@ function ServiceDemo4() {
 }
 
 const FAQ_ITEMS = [
-  { q: "What exactly happens during the Digital Triage Call?", a: "We start with a 30-minute conversation to understand your key challenges, review your current AI maturity, and agree on immediate next steps to drive impact." },
+  { q: "What happens during the Decision Exposure Assessment?", a: "We map your highest-risk AI decision categories, review your current evidence files, and produce an Exposure Report identifying where gaps exist and which gaps create the most regulatory or litigation exposure." },
   { q: "How do you guarantee measurable ROI?", a: "Every engagement starts with defined success metrics. We track decision coverage, regulatory examination outcomes, and governance posture improvements, delivering measurable, documented results you can show your board." },
   { q: "Which industries do you specialize in?", a: "We specialize in regulated industries: banking and financial services, insurance, and healthcare. These are environments where AI governance is not optional, it is existential." },
   { q: "How long does a typical engagement last?", a: "Decision Exposure Assessments typically run 2-3 weeks. PrescienceOS™ implementations run 6-10 weeks. Board governance packages are ongoing. Every engagement is scoped to your specific environment." },
@@ -346,19 +346,12 @@ export default function HomePage() {
       {/* HERO */}
       <section className="relative isolate overflow-hidden hero-gradient min-h-[85vh] flex flex-col items-center justify-center text-center px-6 pt-20 sm:pt-16 pb-20">
         <GridBackground variant="blue" glowPosition="top-center" />
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <StarRating />
-        </motion.div>
         <h1
           className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#292929] leading-[1.1] tracking-tight max-w-4xl mb-6 text-center"
           style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}
         >
           <AnimateWords
-            text="AI Decisions Get Examined. The Leaders Behind Them Should Never Stand Alone."
+            text="The Flight Recorder for Your AI Decisions"
             delay={0.05}
             className="leading-[1.1]"
           />
@@ -367,9 +360,9 @@ export default function HomePage() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-base text-[#292929]/65 max-w-2xl mx-auto leading-relaxed mb-6 sm:mb-3"
+          className="text-base text-[#292929]/65 max-w-2xl mx-auto leading-relaxed mb-4 sm:mb-3"
         >
-          I build Decision Defensibility Infrastructure for executives and boards in banks, insurers, and health systems, so when the scrutiny comes, the record is already there.
+          When your AI-influenced decisions come under scrutiny from regulators, boards, insurers, or litigants, what&apos;s in your evidence file? We build the infrastructure that answers that question before anyone asks it.
         </motion.p>
         <motion.p
           initial={{ opacity: 0, y: 16 }}
@@ -377,7 +370,7 @@ export default function HomePage() {
           transition={{ duration: 0.6, delay: 0.25 }}
           className="hidden sm:block text-sm text-[#292929]/45 max-w-xl mx-auto leading-relaxed mb-10"
         >
-          With over 20 years of experience in regulated industries, I have watched organizations deploy AI with confidence and face regulators, auditors, and boards without a single document that explains why a decision was made, who owned it, or what controls were in force. That gap is the liability. I close it.
+          Every day, executives in regulated industries make material decisions shaped by AI. Most cannot explain those decisions under pressure. Many can&apos;t find them at all. PrescienceOS™ changes that. Decision Defensibility Infrastructure that captures what was decided, why, under what controls, and by whom, before the crisis arrives.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -391,7 +384,7 @@ export default function HomePage() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#578cff] text-white text-sm font-semibold hover:bg-[#4070e0] hover:scale-[1.03] active:scale-[0.97] transition-all shadow-md w-full sm:w-auto justify-center"
           >
-            Book a Call <ArrowRight className="w-4 h-4" />
+            Request a Decision Audit <ArrowRight className="w-4 h-4" />
           </Link>
           <Link
             href="/how-it-works"
@@ -411,7 +404,7 @@ export default function HomePage() {
           <Reveal>
             <SectionTag>Services</SectionTag>
             <AnimateWords
-              text="AI solutions tailored for your business needs"
+              text="Infrastructure built to withstand scrutiny"
 
               className="text-3xl md:text-4xl font-bold text-[#292929] text-center max-w-xl mx-auto leading-tight"
               delay={0.05}
@@ -437,87 +430,65 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* IS THIS YOU */}
-      <section className="bg-white py-14 md:py-20 px-6 border-t border-[#f0f0f0]">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-14 items-center">
+      {/* PROBLEM */}
+      <section className="bg-[#f8fafc] py-14 md:py-20 px-6 border-t border-[#f0f0f0]">
+        <div className="max-w-3xl mx-auto text-center">
           <Reveal>
-            <div className="rounded-2xl overflow-hidden shadow-sm" style={{ maxHeight: "380px" }}>
-              <Image
-                src="/images/testimonials/INhUQ15tVRlexqBYDVn8V3f1QZA.avif"
-                alt="Executive navigating AI challenges"
-                width={560}
-                height={380}
-                unoptimized
-                className="w-full h-full object-cover object-[center_35%]"
-              />
-            </div>
+            <SectionTag>The Problem</SectionTag>
+            <h2
+              className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#292929] leading-tight mb-8"
+              style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}
+            >
+              The question isn&apos;t if your AI decisions will be examined. It&apos;s whether you&apos;ll have anything to show.
+            </h2>
           </Reveal>
           <Reveal delay={0.1}>
-            <SectionTag className="justify-start">Is This You?</SectionTag>
-            <h2
-              className="text-3xl md:text-4xl font-bold text-[#292929] leading-tight mb-5"
-              style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}
-            >
-              <AnimateWords text="Stalled growth?" delay={0.1} className="block" />
-              <AnimateWords text="Fragmented systems?" delay={0.25} className="block" />
-              <AnimateWords text="Missed opportunities?" delay={0.4} className="block" />
-              <AnimateWords text="You're not alone." delay={0.55} className="block" />
-            </h2>
-            <p className="text-sm text-[#292929]/60 leading-relaxed mb-8">
-              90% of companies in 2025 struggle to define an actionable AI strategy, lack the expertise to implement AI solutions, face inefficient and unscalable processes, and worry that competitors will outpace them with AI.
+            <p className="text-sm text-[#292929]/65 leading-relaxed mb-6">
+              Regulators are asking. Boards are asking. Insurers are adjusting premiums. Litigants are filing discovery. And most organizations are scrambling, not because they made bad decisions, but because they can&apos;t prove they made good ones.
             </p>
-            <Link
-              href={BOOK_CALL_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#578cff] text-white text-sm font-semibold hover:bg-[#4070e0] transition-all w-full sm:w-auto justify-center"
-            >
-              Book a Call <ArrowRight className="w-4 h-4" />
-            </Link>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* INTRODUCTION */}
-      <section className="bg-white py-12 md:py-16 px-6 border-t border-[#f0f0f0]">
-        <div className="max-w-4xl mx-auto text-center">
-          <Reveal>
-            <SectionTag>Introduction</SectionTag>
-            <p
-              className="text-xl md:text-2xl lg:text-3xl font-semibold text-[#292929] leading-[1.6]"
-              style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}
-            >
-              AI Advisors, LLC delivers{" "}
-              <IconPill icon={Cpu} hoverMotion={{ rotate: 180 }} />{" "}
-              all solutions, from AI Agents, Chatbots, and Workflow{" "}
-              <IconPill icon={Zap} hoverMotion={{ y: -3, scale: 1.15 }} />{" "}
-              Automation. We specialize in{" "}
-              <IconPill icon={Database} hoverMotion={{ y: -3 }} />{" "}
-              LLM development, AI consulting, and content to drive{" "}
-              <IconPill icon={Settings2} hoverMotion={{ rotate: 90 }} />{" "}
-              innovation.
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 text-left">
+              {[
+                { label: "Policies", body: "describe intent." },
+                { label: "Frameworks", body: "describe aspiration." },
+                { label: "Certifications", body: "describe effort." },
+              ].map(({ label, body }) => (
+                <div key={label} className="bg-white rounded-xl border border-[#e2e8f0] p-4">
+                  <p className="text-sm font-semibold text-[#292929] mb-1">{label}</p>
+                  <p className="text-sm text-[#292929]/55">{body}</p>
+                </div>
+              ))}
+            </div>
+            <p className="text-base font-semibold text-[#292929]">
+              None of them survive a deposition.
+            </p>
+            <p className="text-sm text-[#292929]/60 mt-3">
+              The only thing that holds under real scrutiny is contemporaneous, structured evidence. Built before anyone asked for it.
             </p>
           </Reveal>
         </div>
       </section>
 
-      {/* WHY CHOOSE US */}
+      {/* SOLUTION */}
       <section className="bg-white py-14 md:py-20 px-6 border-t border-[#f0f0f0]">
         <div className="max-w-5xl mx-auto">
           <Reveal>
-            <SectionTag>Why Us</SectionTag>
+            <SectionTag>The Solution</SectionTag>
             <AnimateWords
-              text="Why Choose Us"
-
-              className="text-3xl md:text-4xl font-bold text-[#292929] text-center mb-12"
+              text="Decision Defensibility Infrastructure for Regulated Industries"
+              className="text-3xl md:text-4xl font-bold text-[#292929] text-center max-w-2xl mx-auto mb-5"
               delay={0.05}
             />
           </Reveal>
+          <Reveal delay={0.05}>
+            <p className="text-sm text-[#292929]/60 text-center max-w-2xl mx-auto leading-relaxed mb-12">
+              AI Advisors builds and implements PrescienceOS™, a governance system indexed to individual AI-influenced decisions, not policies or audits. Think of it as the flight recorder that aviation regulators require on every aircraft. It exists before the incident. It captures everything in real time. When the inquiry begins, you hand over the record.
+            </p>
+          </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { icon: Shield, title: "Clarity First", body: "Most AI initiatives fail because they chase trends, not ROI. My AI Readiness Diagnostic Scorecard identifies high-leverage opportunities within your operations, prioritized for financial impact, compliance, and speed.", delay: 0.05 },
-              { icon: TrendingUp, title: "Compounding Leverage", body: "I design agentic systems, not just point automations. These systems reduce cycle times by 40-70% and create durable, compounding advantages, whether in regulated workflows or deal pipelines.", delay: 0.1 },
-              { icon: Handshake, title: "Aligned Incentives", body: "I work like a deal partner, not a contractor. Every advisory engagement and implementation is structured around your business outcomes, valuation, and long-term growth.", delay: 0.15 },
+              { icon: Shield, title: "Decision Receipt™", body: "A cryptographically durable, structured record of every material AI-influenced decision: what was decided, why, what AI contributed, who owned it, and what controls were in force. Built to be produced, not described.", delay: 0.05 },
+              { icon: Database, title: "Decision Registry", body: "A living, searchable index of your organization's AI decision history. Not a policy document, an actual record of what happened, available on demand for auditors, examiners, or board review.", delay: 0.1 },
+              { icon: Handshake, title: "Director Safe Harbor", body: "Documented reliance on a defined governance system, giving your board and GC the fiduciary protection that comes from process integrity, not just good intentions.", delay: 0.15 },
             ].map(({ icon: Icon, title, body, delay }) => (
               <Reveal key={title} delay={delay}>
                 <div className="bg-[#f8fafc] rounded-2xl border border-[#e2e8f0] p-5 md:p-7 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 h-full">
@@ -533,26 +504,51 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* WHO IT'S FOR */}
+      <section className="bg-[#f8fafc] py-14 md:py-20 px-6 border-t border-[#f0f0f0]">
+        <div className="max-w-5xl mx-auto">
+          <Reveal>
+            <SectionTag>Who It&apos;s For</SectionTag>
+            <AnimateWords
+              text="Built for the leaders who will be asked to explain"
+              className="text-3xl md:text-4xl font-bold text-[#292929] text-center max-w-2xl mx-auto mb-12"
+              delay={0.05}
+            />
+          </Reveal>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[
+              { title: "General Counsel", body: "You need evidence that holds up in discovery, examinations, and regulatory inquiries, not a governance framework that evaporates under questioning.", delay: 0.05 },
+              { title: "Board Directors", body: "Your fiduciary duty to oversee AI is real. PrescienceOS™ gives you documented reliance on a defined system, the board-protective infrastructure that matters when someone files a claim.", delay: 0.1 },
+              { title: "Chief Risk Officers", body: "Model risk, AI bias, explainability requirements. Your examiners want to see the decision trail, not hear about your AI policy.", delay: 0.15 },
+              { title: "Chief Compliance Officers", body: "PrescienceOS™ is the evidence layer regulators actually want to see. Audit-ready by design, not scrambling by necessity.", delay: 0.2 },
+            ].map(({ title, body, delay }) => (
+              <Reveal key={title} delay={delay}>
+                <div className="bg-white rounded-2xl border border-[#e2e8f0] p-5 md:p-7 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 h-full">
+                  <h3 className="text-base font-semibold text-[#578cff] mb-3">{title}</h3>
+                  <p className="text-sm text-[#292929]/60 leading-relaxed">{body}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* TESTIMONIALS */}
-      <section className="bg-white py-14 md:py-20 px-6 border-t border-[#f0f0f0]">
+      <section id="testimonials" className="bg-white py-14 md:py-20 px-6 border-t border-[#f0f0f0]">
         <div className="max-w-6xl mx-auto">
           <Reveal>
             <SectionTag>Testimonials</SectionTag>
             <AnimateWords
-              text="What our happy clients say about our services"
+              text="Credibility built case by case"
 
               className="text-3xl md:text-4xl font-bold text-[#292929] text-center max-w-lg mx-auto mb-8 md:mb-14"
               delay={0.05}
             />
           </Reveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 mb-8 md:mb-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 mb-8 md:mb-10 max-w-3xl mx-auto">
             {[
-              { name: "Jimmy Bogoff", role: "Founder & CEO at Fearless Influence", photo: "/images/testimonials/3Mpvf2kjeOX9rhi4A033R1O5I.webp", text: "I had the good fortune of working with David for several years to grow and develop our Eugene territory. He is a determined and persistent account executive and an extremely effective networker. David uses his networking connections to open up new business relationships.", delay: 0.05 },
-              { name: "Jim Dyck", role: "Digital Sales Manager at Nexstar Media Group", photo: "/images/testimonials/48biUygDiwbZYSpDjOkDbWcvg.webp", text: "I had the privilege of working with David for several years. David is a great networker and seems to have his hands in everything in the community. He has a great ability to connect multiple moving parts to make seemingly complex ideas understandable.", delay: 0.1 },
-              { name: "Michael Newman", role: "Founder and President at Thanks For Real", photo: "/images/testimonials/JA4e70uuB6w88xiCGB410mfx2xs.webp", text: "David has previously been a professional consultant and advocate for my business, regularly seeking and giving my company opportunities for growth, new sales and revenues. He has opened doors typically unavailable to other consultants.", delay: 0.15 },
-              { name: "Jayash Kumar", role: "Media Products at ApplikMedia / Apple", photo: "/images/testimonials/NrWEkANSuhU5alDIXE1hmiauNM4.webp", text: "I had the pleasure of being in the same cohort as David in the AI for Leaders Post Graduate course at UT Austin. His domain knowledge and enthusiasm for AI-based healthcare initiatives makes him a very valuable asset.", delay: 0.05 },
-              { name: "Ziva Oster", role: "President / CEO @ AskZipy.com", photo: "/images/testimonials/KyTX3O9y2aVYCwcZBeKK1nmAiNU.avif", text: "David Gwynn is a knowledgeable and talented individual with great enthusiasm in all aspects of his life. He has a natural ability to bond with people and ensure a win-win relationship for all entities involved.", delay: 0.1 },
-              { name: "Thuy Tran", role: "Asst VP for Integrated Communications, Univ. of Oregon", photo: "/images/testimonials/aCSeWv6Et9jbSVtMxA51aqycOyw.webp", text: "David is an exceptional person to work with: co-strategic, inclusive, collaborative, and creative. I continue to be impressed with David's vision and Oregon State University is fortunate to have worked with him.", delay: 0.15 },
+              { name: "Jayanth Kumar", role: "Media Products, Apple", photo: "/images/testimonials/NrWEkANSuhU5alDIXE1hmiauNM4.webp", text: "I had the pleasure of being in the same cohort as David in the AI for Leaders Post Graduate course at UT Austin. His domain knowledge and enthusiasm for AI-based healthcare initiatives makes him a very valuable asset.", delay: 0.05 },
+              { name: "Thuy Tran", role: "Asst VP for Integrated Communications, Univ. of Oregon", photo: "/images/testimonials/aCSeWv6Et9jbSVtMxA51aqycOyw.webp", text: "David is an exceptional person to work with: co-strategic, inclusive, collaborative, and creative. I continue to be impressed with David's vision and Oregon State University is fortunate to have worked with him.", delay: 0.1 },
             ].map(({ name, role, photo, text, delay }) => (
               <Reveal key={name} delay={delay}>
                 <div className="bg-white rounded-2xl border border-[#e2e8f0] p-6 hover:shadow-md transition-all duration-300 h-full flex flex-col">
@@ -597,7 +593,7 @@ export default function HomePage() {
           <Reveal>
             <SectionTag>How it works</SectionTag>
             <AnimateWords
-              text="How AI Advisors Works"
+              text="We implement it. You own the record."
 
               className="text-3xl md:text-4xl font-bold text-[#292929] text-center mb-14"
               delay={0.05}
@@ -605,9 +601,10 @@ export default function HomePage() {
           </Reveal>
           <div>
             {[
-              { n: "01", title: "Schedule Your Digital Triage Call", body: "A complimentary 30-minute session to uncover your top AI challenges and define clear objectives.", delay: 0.05 },
-              { n: "02", title: "Prototype & Audit", body: "Combine the Ascend AI™ Audit and AI Advantage Sprint to validate key use cases, pinpoint gaps, and demonstrate early wins.", delay: 0.1 },
-              { n: "03", title: "Roadmap & Implement", body: "Co-create your phased AI Strategy Roadmap, then execute with hands-on support to deliver measurable growth.", delay: 0.15 },
+              { n: "01", title: "Decision Exposure Assessment", body: "We map where AI-influenced decisions are being made across your organization and identify your highest-exposure zones: the decisions that would create the most liability if you couldn't explain them.", delay: 0.05 },
+              { n: "02", title: "PrescienceOS™ Implementation", body: "We deploy the Decision Receipt™ architecture and Decision Registry calibrated to your regulatory environment, whether that's OCC model risk guidance, state insurance regulations, or healthcare AI requirements.", delay: 0.1 },
+              { n: "03", title: "Governance Activation", body: "Your team is trained. The system is live. Every material decision generates a durable, replayable record before scrutiny arrives.", delay: 0.15 },
+              { n: "04", title: "Ongoing Coverage", body: "Quarterly coverage reports, board attestation support, and AI Decision Rating™ (AIDR) updates keep your defensibility posture current as your AI use evolves.", delay: 0.2 },
             ].map(({ n, title, body, delay }, i, arr) => (
               <Reveal key={n} delay={delay}>
                 <div className="flex gap-7">
@@ -640,22 +637,25 @@ export default function HomePage() {
             </div>
           </Reveal>
           <Reveal delay={0.1}>
-            <SectionTag className="justify-start">About us</SectionTag>
+            <SectionTag className="justify-start">About</SectionTag>
             <AnimateWords
-              text="Meet David Gwynn"
+              text="David W. Gwynn"
 
               className="text-3xl font-bold text-[#292929] mb-2"
               delay={0.1}
             />
-            <p className="text-sm text-[#292929]/60 mb-5">Governance-first. Evidence-driven. Built for regulated environments.</p>
+            <p className="text-sm text-[#292929]/60 mb-5">AI Governance and Risk Advisor</p>
             <p className="text-sm text-[#292929]/70 leading-relaxed mb-6">
-              I lead AI Advisors, LLC, a governance-first advisory firm specializing in the decisions that matter most: the ones that will be examined. My work focuses on three things:
+              I built AI Advisors after watching organizations deploy powerful AI systems with no evidence infrastructure behind them, then scramble when the questions came. My background spans AI governance, model risk management, and decision auditability for banks, insurers, and health systems. I have seen what fails under scrutiny. I have built what survives it.
+            </p>
+            <p className="text-sm text-[#292929]/70 leading-relaxed mb-6">
+              PrescienceOS™ is not a framework or a checklist. It is infrastructure, the kind that makes accountability real before anyone demands it.
             </p>
             <div className="space-y-5 mb-8">
               {[
-                { title: "AI Governance & Decision Rights", body: "Helping executives and boards establish who owns AI-influenced decisions, under what authority, and with what evidence trail." },
-                { title: "Decision Auditability", body: "Implementing PrescienceOS™, the system that captures what was decided, why, and by whom, so your organization can produce the record when regulators, auditors, or litigants ask for it." },
-                { title: "Operational Readiness for Regulated Industries", body: "Ensuring AI deployments in banks, health systems, and insurers align with model risk guidance, fair lending requirements, and emerging regulatory standards, with the documentation to prove it." },
+                { title: "AI Governance", body: "Establishing who owns AI-influenced decisions, under what authority, and with what evidence trail." },
+                { title: "Decision Auditability", body: "Implementing PrescienceOS™ to capture what was decided, why, and by whom, so your organization can produce the record when regulators, auditors, or litigants ask for it." },
+                { title: "Operational Readiness", body: "Ensuring AI deployments in banks, health systems, and insurers align with model risk guidance, fair lending requirements, and emerging regulatory standards, with the documentation to prove it." },
               ].map(({ title, body }) => (
                 <div key={title} className="flex gap-3">
                   <div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#578cff] mt-1.5" />
@@ -683,16 +683,16 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center">
           {[
             { to: 30, suffix: "+", label: "Years of Leadership in Technology & Strategy" },
-            { to: 18, suffix: "M", label: "NASDAQ IPO Value Delivered at WavePhone" },
+            { to: 18, prefix: "$", suffix: "M", label: "NASDAQ IPO Value Delivered at WavePhone" },
             { to: 438, suffix: "+", label: "Executive AI Consultations Completed" },
             { to: 10, suffix: "M+", label: "AI-Powered Decisions" },
-          ].map(({ to, suffix, label }) => (
+          ].map(({ to, prefix, suffix, label }) => (
             <Reveal key={label}>
               <div
                 className="text-3xl md:text-5xl font-bold text-[#292929] mb-2"
                 style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}
               >
-                <CountUp to={to} suffix={suffix} />
+                <CountUp to={to} prefix={prefix} suffix={suffix} />
               </div>
               <p className="text-xs text-[#292929]/55 leading-snug">{label}</p>
             </Reveal>
@@ -732,7 +732,7 @@ export default function HomePage() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-white py-14 md:py-20 px-6">
+      <section id="faq" className="bg-white py-14 md:py-20 px-6">
         <div className="max-w-2xl mx-auto">
           <Reveal>
             <SectionTag>FAQ&apos;s</SectionTag>
@@ -757,10 +757,10 @@ export default function HomePage() {
               className="text-3xl md:text-4xl font-bold text-white mb-5 leading-tight max-w-2xl mx-auto"
               style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}
             >
-              If you cannot explain your AI decisions today, let&apos;s fix that.
+              Find out where you&apos;re exposed, before someone else does.
             </h2>
             <p className="text-sm text-white/70 leading-relaxed mb-2 max-w-xl mx-auto">
-              The organizations that navigate AI scrutiny successfully are not the ones who never made a questionable decision. They are the ones who built the evidence infrastructure before anyone asked. Start with a conversation. We will identify where you are exposed and what it would take to close the gap.
+              We start every engagement with a Decision Exposure Assessment: a focused review of where your highest-risk AI decisions live and what your current evidence file looks like. If you have gaps, you will know. If you are covered, you will have the documentation to prove it.
             </p>
             <p className="text-sm text-white/45 mb-8">david@aiadvisorsllc.com</p>
             <Link
@@ -769,7 +769,7 @@ export default function HomePage() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-white text-[#578cff] text-sm font-semibold hover:bg-[#f0f6ff] hover:scale-[1.03] transition-all shadow-xl w-full sm:w-auto justify-center"
             >
-              Book a Call <ArrowRight className="w-4 h-4" />
+              Request Your Decision Exposure Assessment <ArrowRight className="w-4 h-4" />
             </Link>
             <p className="text-xs text-white/35 mt-4">Serving banks, insurers, and health systems.</p>
           </Reveal>

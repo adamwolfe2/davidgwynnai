@@ -23,7 +23,7 @@ export function Footer() {
             <span className="font-semibold text-base text-[#292929]">AI Advisors LLC</span>
           </Link>
           <p className="text-sm text-[#292929]/60 leading-relaxed mb-6">
-            AI powered solutions to enhance &amp; scale your business
+            Decision Defensibility Infrastructure for boards, GCs, and regulated enterprises.
           </p>
           <Link
             href={BOOK_CALL_URL}
@@ -31,7 +31,7 @@ export function Footer() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#578cff] text-white text-sm font-semibold hover:bg-[#4070e0] transition-all"
           >
-            Book a Call
+            Request a Decision Audit
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
@@ -41,8 +41,8 @@ export function Footer() {
           <h4 className="text-sm font-semibold text-[#292929] mb-4 uppercase tracking-wider">Quick Links</h4>
           <ul className="space-y-3">
             {[
-              { href: "/#about", label: "About us" },
-              { href: "/services", label: "Solutions" },
+              { href: "/#about", label: "About" },
+              { href: "/services", label: "Services" },
               { href: "/privacy", label: "Privacy" },
               { href: "/terms", label: "Terms of Service" },
             ].map((link) => (
@@ -90,10 +90,10 @@ export function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-[#e2e8f0]">
         <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <p className="text-xs text-[#292929]/50">
-            David W. Gwynn | AI Advisors, LLC | AI Governance &amp; Risk Advisor | Decision Auditability | Model Risk Management
+          <p className="text-xs text-[#292929]/40">
+            PrescienceOS™, Decision Receipt™, and AI Decision Rating™ are trademarks of Prescience Holdings.
           </p>
-          <p className="text-xs text-[#292929]/40">&copy; 2026 AI Advisors, LLC</p>
+          <p className="text-xs text-[#292929]/40">&copy; 2026 AI Advisors, LLC. All rights reserved.</p>
         </div>
       </div>
     </footer>

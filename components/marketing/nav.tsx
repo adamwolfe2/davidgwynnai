@@ -10,8 +10,10 @@ const BOOK_CALL_URL =
 
 const navLinks = [
   { href: "/#about", label: "About" },
-  { href: "/services", label: "Solutions" },
-  { href: "/contact", label: "Contact Us" },
+  { href: "/services", label: "Services" },
+  { href: "/how-it-works", label: "How It Works" },
+  { href: "/#testimonials", label: "Reviews" },
+  { href: "/#faq", label: "FAQ" },
 ]
 
 export function Nav() {
@@ -68,7 +70,7 @@ export function Nav() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#578cff] text-white text-sm font-medium hover:bg-[#4070e0] transition-colors"
               >
-                Book a Call
+                Request a Decision Audit
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
@@ -105,7 +107,7 @@ export function Nav() {
                     className="flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#578cff] text-white text-sm font-medium"
                     onClick={() => setOpen(false)}
                   >
-                    Book a Call <ArrowRight className="w-3.5 h-3.5" />
+                    Request a Decision Audit <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
               </div>

@@ -5,11 +5,12 @@ import { useInView, useMotionValue, useTransform, animate } from "framer-motion"
 
 interface CountUpProps {
   to: number
+  prefix?: string
   suffix?: string
   duration?: number
 }
 
-export function CountUp({ to, suffix = "", duration = 2 }: CountUpProps) {
+export function CountUp({ to, prefix = "", suffix = "", duration = 2 }: CountUpProps) {
   const ref = useRef<HTMLSpanElement>(null)
   const isInView = useInView(ref, { once: true, margin: "-80px" })
   const motionValue = useMotionValue(0)
@@ -31,8 +32,7 @@ export function CountUp({ to, suffix = "", duration = 2 }: CountUpProps) {
 
   return (
     <span ref={ref}>
-      {displayValue}
-      {suffix}
+      {prefix}{displayValue}{suffix}
     </span>
   )
 }

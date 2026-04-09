@@ -6,6 +6,10 @@
  *  "blue"    — light-blue glow  (#C9EBFF)  — hero, services, how-it-works
  *  "purple"  — lavender glow    (#d5c5ff)  — testimonials, stats, CTA
  *  "none"    — grid only, no glow           — minimal sections
+ *
+ * Layer order (bottom → top):
+ *  1. Radial colour glow (behind grid lines so lines stay visible)
+ *  2. Grid lines (always on top of the glow)
  */
 
 type GridVariant = "blue" | "purple" | "none"
@@ -22,9 +26,9 @@ const glowColors: Record<GridVariant, string> = {
 }
 
 const positionStyles: Record<string, string> = {
-  "top-center": "bg-[radial-gradient(circle_600px_at_50%_-50px,VAR,transparent)]",
-  "top-right":  "bg-[radial-gradient(circle_700px_at_100%_100px,VAR,transparent)]",
-  "top-left":   "bg-[radial-gradient(circle_700px_at_0%_100px,VAR,transparent)]",
+  "top-center": "bg-[radial-gradient(circle_700px_at_50%_-80px,VAR,transparent_70%)]",
+  "top-right":  "bg-[radial-gradient(circle_700px_at_100%_100px,VAR,transparent_70%)]",
+  "top-left":   "bg-[radial-gradient(circle_700px_at_0%_100px,VAR,transparent_70%)]",
 }
 
 export function GridBackground({
@@ -35,10 +39,13 @@ export function GridBackground({
   const gradientClass = positionStyles[glowPosition].replace("VAR", color)
 
   return (
-    <div className="absolute inset-0 -z-10 h-full w-full bg-[linear-gradient(to_right,#e8edf5_1px,transparent_1px),linear-gradient(to_bottom,#e8edf5_1px,transparent_1px)] bg-[size:5rem_3.5rem]">
+    <div className="absolute inset-0 -z-10 h-full w-full pointer-events-none">
+      {/* Glow layer — behind grid so lines are always visible */}
       {variant !== "none" && (
         <div className={`absolute inset-0 ${gradientClass}`} />
       )}
+      {/* Grid lines — on top of glow, visible on any background */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#b8cce4_1px,transparent_1px),linear-gradient(to_bottom,#b8cce4_1px,transparent_1px)] bg-[size:4.5rem_3.5rem] opacity-40" />
     </div>
   )
 }

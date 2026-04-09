@@ -8,7 +8,6 @@ import { ArrowRight, Plus, X, ChevronRight, Shield, TrendingUp, Handshake, Cpu, 
 import { LogoTicker } from "@/components/marketing/logo-ticker"
 import { CountUp } from "@/components/ui/count-up"
 import { GridBackground } from "@/components/ui/grid-background"
-import { FlipWords } from "@/components/ui/flip-words"
 
 const BOOK_CALL_URL = "https://calendly.com/dgwynn/introductory-15-minute-meeting-david-gwynn-ai-advisors"
 const TYPEFORM_URL = "https://form.typeform.com/to/brq8lDnN"
@@ -19,13 +18,43 @@ function Reveal({ children, className = "", delay = 0 }: { children: React.React
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 24 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
+      initial={{ opacity: 0, y: 24, filter: "blur(6px)" }}
+      animate={inView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
       transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
       className={className}
     >
       {children}
     </motion.div>
+  )
+}
+
+// One-time word-by-word blur reveal — plays once on scroll, stays put
+function AnimateWords({
+  text,
+  className = "",
+  delay = 0,
+}: {
+  text: string
+  className?: string
+  delay?: number
+}) {
+  const ref = useRef<HTMLDivElement>(null)
+  const inView = useInView(ref, { once: true, margin: "-40px" })
+  const words = text.split(" ")
+  return (
+    <div ref={ref} className={className}>
+      {words.map((word, i) => (
+        <motion.span
+          key={i}
+          initial={{ opacity: 0, filter: "blur(8px)", y: 10 }}
+          animate={inView ? { opacity: 1, filter: "blur(0px)", y: 0 } : {}}
+          transition={{ duration: 0.45, delay: delay + i * 0.06, ease: [0.22, 1, 0.36, 1] }}
+          className="inline-block mr-[0.28em] last:mr-0"
+        >
+          {word}
+        </motion.span>
+      ))}
+    </div>
   )
 }
 
@@ -290,24 +319,14 @@ export default function HomePage() {
         >
           <StarRating />
         </motion.div>
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#292929] leading-[1.15] tracking-tight max-w-4xl mb-6"
+        <h1
+          className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#292929] leading-[1.1] tracking-tight max-w-4xl mb-6 text-center"
           style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}
         >
-          AI Decisions Get Examined.
-          <br />
-          <span className="inline-flex items-baseline flex-wrap justify-center">
-            The Leaders Behind Them{" "}
-            <FlipWords
-              words={["Should Never Stand Alone.", "Need Defensible Evidence.", "Deserve AI Governance.", "Require Clear Documentation."]}
-              duration={4000}
-              className="text-[#578cff] font-bold px-0 ml-1"
-            />
-          </span>
-        </motion.h1>
+          <AnimateWords text="AI Decisions Get Examined." delay={0.05} className="block" />
+          <AnimateWords text="The Leaders Behind Them Should Never" delay={0.3} className="block" />
+          <AnimateWords text="Stand Alone." delay={0.55} className="block" />
+        </h1>
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -356,12 +375,12 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto">
           <Reveal>
             <SectionTag>Services</SectionTag>
-            <h2
+            <AnimateWords
+              text="AI solutions tailored for your business needs"
+
               className="text-3xl md:text-4xl font-bold text-[#292929] text-center max-w-xl mx-auto leading-tight"
-              style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}
-            >
-              AI solutions tailored for your business needs
-            </h2>
+              delay={0.05}
+            />
           </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
             {[
@@ -404,14 +423,10 @@ export default function HomePage() {
               className="text-3xl md:text-4xl font-bold text-[#292929] leading-tight mb-5"
               style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}
             >
-              <span className="block min-h-[1.2em]">
-                <FlipWords
-                  words={["Stalled growth?", "Fragmented systems?", "Missed opportunities?"]}
-                  duration={2500}
-                  className="text-[#292929] font-bold px-0"
-                />
-              </span>
-              You&apos;re not alone.
+              <AnimateWords text="Stalled growth?" delay={0.1} className="block" />
+              <AnimateWords text="Fragmented systems?" delay={0.25} className="block" />
+              <AnimateWords text="Missed opportunities?" delay={0.4} className="block" />
+              <AnimateWords text="You're not alone." delay={0.55} className="block" />
             </h2>
             <p className="text-sm text-[#292929]/60 leading-relaxed mb-8">
               90% of companies in 2025 struggle to define an actionable AI strategy, lack the expertise to implement AI solutions, face inefficient and unscalable processes, and worry that competitors will outpace them with AI.
@@ -465,12 +480,12 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto">
           <Reveal>
             <SectionTag>Why Us</SectionTag>
-            <h2
+            <AnimateWords
+              text="Why Choose Us"
+
               className="text-3xl md:text-4xl font-bold text-[#292929] text-center mb-12"
-              style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}
-            >
-              Why Choose Us
-            </h2>
+              delay={0.05}
+            />
           </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
@@ -497,12 +512,12 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto">
           <Reveal>
             <SectionTag>Testimonials</SectionTag>
-            <h2
+            <AnimateWords
+              text="What our happy clients say about our services"
+
               className="text-3xl md:text-4xl font-bold text-[#292929] text-center max-w-lg mx-auto mb-14"
-              style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}
-            >
-              What our happy clients say about our services
-            </h2>
+              delay={0.05}
+            />
           </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
             {[
@@ -555,12 +570,12 @@ export default function HomePage() {
         <div className="max-w-2xl mx-auto">
           <Reveal>
             <SectionTag>How it works</SectionTag>
-            <h2
+            <AnimateWords
+              text="How AI Advisors Works"
+
               className="text-3xl md:text-4xl font-bold text-[#292929] text-center mb-14"
-              style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}
-            >
-              How AI Advisors Works
-            </h2>
+              delay={0.05}
+            />
           </Reveal>
           <div>
             {[
@@ -600,12 +615,12 @@ export default function HomePage() {
           </Reveal>
           <Reveal delay={0.1}>
             <SectionTag className="justify-start">About us</SectionTag>
-            <h2
+            <AnimateWords
+              text="Meet David Gwynn"
+
               className="text-3xl font-bold text-[#292929] mb-2"
-              style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}
-            >
-              Meet David Gwynn
-            </h2>
+              delay={0.1}
+            />
             <p className="text-sm text-[#292929]/60 mb-5">Governance-first. Evidence-driven. Built for regulated environments.</p>
             <p className="text-sm text-[#292929]/70 leading-relaxed mb-6">
               I lead AI Advisors, LLC, a governance-first advisory firm specializing in the decisions that matter most: the ones that will be examined. My work focuses on three things:

@@ -372,8 +372,7 @@ export default function HomePage() {
       <LogoTicker />
 
       {/* SERVICES */}
-      <section className="relative isolate overflow-hidden bg-white py-20 px-6">
-        <GridBackground variant="blue" glowPosition="top-right" />
+      <section className="relative overflow-hidden bg-white py-20 px-6">
         <div className="max-w-5xl mx-auto">
           <Reveal>
             <SectionTag>Services</SectionTag>
@@ -477,8 +476,7 @@ export default function HomePage() {
       </section>
 
       {/* WHY CHOOSE US */}
-      <section className="relative isolate overflow-hidden bg-white py-20 px-6 border-t border-[#f0f0f0]">
-        <GridBackground variant="purple" glowPosition="top-left" />
+      <section className="bg-white py-20 px-6 border-t border-[#f0f0f0]">
         <div className="max-w-5xl mx-auto">
           <Reveal>
             <SectionTag>Why Us</SectionTag>
@@ -677,8 +675,7 @@ export default function HomePage() {
       </section>
 
       {/* QUIZ */}
-      <section className="relative isolate overflow-hidden bg-[#f8fafc] py-20 px-6 border-t border-[#f0f0f0]">
-        <GridBackground variant="blue" glowPosition="top-center" />
+      <section className="bg-[#f8fafc] py-20 px-6 border-t border-[#f0f0f0]">
         <div className="max-w-3xl mx-auto">
           <Reveal>
             <SectionTag>Quiz</SectionTag>
@@ -729,7 +726,6 @@ export default function HomePage() {
       {/* FINAL CTA */}
       <section className="px-6 pb-12">
         <div className="relative overflow-hidden cta-gradient rounded-3xl py-16 px-8 text-center max-w-6xl mx-auto">
-          <GridBackground variant="none" />
           <Reveal>
             <h2
               className="text-3xl md:text-4xl font-bold text-white mb-5 leading-tight max-w-2xl mx-auto"

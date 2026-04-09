@@ -44,8 +44,11 @@ export function GridBackground({
       {variant !== "none" && (
         <div className={`absolute inset-0 ${gradientClass}`} />
       )}
-      {/* Grid lines — on top of glow, visible on any background */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#7aa5c8_1px,transparent_1px),linear-gradient(to_bottom,#7aa5c8_1px,transparent_1px)] bg-[size:4.5rem_3.5rem] opacity-50" />
+      {/* Grid lines — fades out toward bottom */}
+      <div
+        className="absolute inset-0 bg-[linear-gradient(to_right,#a8c4dc_1px,transparent_1px),linear-gradient(to_bottom,#a8c4dc_1px,transparent_1px)] bg-[size:4.5rem_3.5rem] opacity-[0.28]"
+        style={{ maskImage: "linear-gradient(to bottom, black 30%, transparent 90%)" }}
+      />
     </div>
   )
 }

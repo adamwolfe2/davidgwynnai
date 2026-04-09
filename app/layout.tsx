@@ -31,6 +31,21 @@ export const metadata: Metadata = {
     url: "https://www.aiadvisorsllc.com",
     siteName: "AI Advisors, LLC",
     type: "website",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "AI Advisors LLC — AI Governance & Decision Defensibility",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "David W. Gwynn | AI Advisors, LLC",
+    description:
+      "AI Governance & Decision Defensibility Infrastructure for banks, insurers, and health systems.",
+    images: ["/opengraph-image"],
   },
 }
 

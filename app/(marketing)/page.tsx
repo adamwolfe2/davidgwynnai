@@ -67,6 +67,40 @@ function SectionTag({ children, className = "" }: { children: React.ReactNode; c
   )
 }
 
+// Animated icon pill — spring scale + glow on hover, unique icon motion per instance
+function IconPill({
+  icon: Icon,
+  hoverMotion,
+}: {
+  icon: React.ElementType
+  hoverMotion: object
+}) {
+  const [hovered, setHovered] = useState(false)
+  return (
+    <motion.span
+      onHoverStart={() => setHovered(true)}
+      onHoverEnd={() => setHovered(false)}
+      animate={{
+        scale: hovered ? 1.25 : 1,
+        boxShadow: hovered
+          ? "0 0 0 5px rgba(87,140,255,0.14)"
+          : "0 0 0 0px rgba(87,140,255,0)",
+      }}
+      transition={{ type: "spring", stiffness: 420, damping: 22 }}
+      className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#578cff]/10 mx-1.5 align-middle cursor-default"
+      style={{ display: "inline-flex" }}
+    >
+      <motion.span
+        animate={hovered ? hoverMotion : { rotate: 0, y: 0, scale: 1 }}
+        transition={{ type: "spring", stiffness: 300, damping: 14 }}
+        style={{ display: "inline-flex" }}
+      >
+        <Icon className="w-3.5 h-3.5 text-[#578cff]" />
+      </motion.span>
+    </motion.span>
+  )
+}
+
 function StarRating() {
   return (
     <div className="flex items-center justify-center gap-2 mb-6">
@@ -454,21 +488,13 @@ export default function HomePage() {
               style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}
             >
               AI Advisors, LLC delivers{" "}
-              <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#578cff]/15 mx-1 align-middle">
-                <Cpu className="w-3.5 h-3.5 text-[#578cff]" />
-              </span>{" "}
+              <IconPill icon={Cpu} hoverMotion={{ rotate: 180 }} />{" "}
               all solutions, from AI Agents, Chatbots, and Workflow{" "}
-              <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#578cff]/15 mx-1 align-middle">
-                <Zap className="w-3.5 h-3.5 text-[#578cff]" />
-              </span>{" "}
+              <IconPill icon={Zap} hoverMotion={{ y: -3, scale: 1.15 }} />{" "}
               Automation. We specialize in{" "}
-              <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#578cff]/15 mx-1 align-middle">
-                <Database className="w-3.5 h-3.5 text-[#578cff]" />
-              </span>{" "}
+              <IconPill icon={Database} hoverMotion={{ y: -3 }} />{" "}
               LLM development, AI consulting, and content to drive{" "}
-              <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#578cff]/15 mx-1 align-middle">
-                <Settings2 className="w-3.5 h-3.5 text-[#578cff]" />
-              </span>{" "}
+              <IconPill icon={Settings2} hoverMotion={{ rotate: 90 }} />{" "}
               innovation.
             </p>
           </Reveal>

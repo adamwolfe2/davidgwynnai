@@ -35,7 +35,7 @@ export function GridBackground({
   const gradientClass = positionStyles[glowPosition].replace("VAR", color)
 
   return (
-    <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:5rem_3.5rem]">
+    <div className="absolute inset-0 -z-10 h-full w-full bg-[linear-gradient(to_right,#e8edf5_1px,transparent_1px),linear-gradient(to_bottom,#e8edf5_1px,transparent_1px)] bg-[size:5rem_3.5rem]">
       {variant !== "none" && (
         <div className={`absolute inset-0 ${gradientClass}`} />
       )}

@@ -414,7 +414,7 @@ export default function HomePage() {
                 width={560}
                 height={380}
                 unoptimized
-                className="w-full h-full object-cover object-top"
+                className="w-full h-full object-cover object-[center_35%]"
               />
             </div>
           </Reveal>

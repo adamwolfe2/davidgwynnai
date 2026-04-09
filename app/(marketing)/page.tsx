@@ -4,9 +4,10 @@ import Image from "next/image"
 import Link from "next/link"
 import { motion, useInView } from "framer-motion"
 import { useRef, useState } from "react"
-import { ArrowRight, Plus, X, ChevronRight, Shield, TrendingUp, Handshake } from "lucide-react"
+import { ArrowRight, Plus, X, ChevronRight, Shield, TrendingUp, Handshake, Cpu, Zap, Database, Settings2 } from "lucide-react"
 import { LogoTicker } from "@/components/marketing/logo-ticker"
 import { CountUp } from "@/components/ui/count-up"
+import { GridBackground } from "@/components/ui/grid-background"
 
 const BOOK_CALL_URL = "https://calendly.com/dgwynn/introductory-15-minute-meeting-david-gwynn-ai-advisors"
 const TYPEFORM_URL = "https://form.typeform.com/to/brq8lDnN"
@@ -160,7 +161,8 @@ export default function HomePage() {
   return (
     <>
       {/* HERO — white bg, barely blue gradient at top */}
-      <section className="hero-gradient min-h-[85vh] flex flex-col items-center justify-center text-center px-6 pt-16 pb-20">
+      <section className="relative overflow-hidden hero-gradient min-h-[85vh] flex flex-col items-center justify-center text-center px-6 pt-16 pb-20">
+        <GridBackground variant="blue" glowPosition="top-center" />
         <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="text-[10px] font-semibold tracking-[0.2em] uppercase text-[#578cff]/70 mb-6">
           Decision Defensibility Infrastructure
         </motion.p>
@@ -190,7 +192,8 @@ export default function HomePage() {
       <LogoTicker />
 
       {/* SERVICES */}
-      <section className="bg-white py-20 px-6">
+      <section className="relative overflow-hidden bg-white py-20 px-6">
+        <GridBackground variant="blue" glowPosition="top-right" />
         <div className="max-w-5xl mx-auto">
           <Reveal>
             <SectionTag>Services</SectionTag>
@@ -223,7 +226,7 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
           <Reveal>
             <div className="rounded-2xl overflow-hidden shadow-sm">
-              <Image src="/images/services/AaLViEzQCyZrBjKsoCHVtHYcU.avif" alt="AI challenges" width={560} height={420} unoptimized className="w-full h-full object-cover" />
+              <Image src="/images/services/Q2Pa7aimmC33LpDFx1NfIXCbe0Q.avif" alt="Stalled growth challenges" width={560} height={420} unoptimized className="w-full object-cover" />
             </div>
           </Reveal>
           <Reveal delay={0.1}>
@@ -248,13 +251,13 @@ export default function HomePage() {
             <SectionTag>Introduction</SectionTag>
             <p className="text-2xl md:text-3xl font-semibold text-[#292929] leading-[1.5]" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}>
               AI Advisors, LLC delivers{" "}
-              <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#578cff]/15 mx-1 align-middle"><span className="text-[#578cff] text-xs font-bold">✦</span></span>{" "}
+              <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#578cff]/15 mx-1 align-middle"><Cpu className="w-3.5 h-3.5 text-[#578cff]" /></span>{" "}
               all solutions, from AI Agents, Chatbots, and Workflow{" "}
-              <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#578cff]/15 mx-1 align-middle"><span className="text-[#578cff] text-xs font-bold">⟳</span></span>{" "}
+              <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#578cff]/15 mx-1 align-middle"><Zap className="w-3.5 h-3.5 text-[#578cff]" /></span>{" "}
               Automation. We specialize in{" "}
-              <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#578cff]/15 mx-1 align-middle"><span className="text-[#578cff] text-xs font-bold">◈</span></span>{" "}
+              <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#578cff]/15 mx-1 align-middle"><Database className="w-3.5 h-3.5 text-[#578cff]" /></span>{" "}
               LLM development, AI consulting, and content to drive{" "}
-              <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#578cff]/15 mx-1 align-middle"><span className="text-[#578cff] text-xs font-bold">↗</span></span>{" "}
+              <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#578cff]/15 mx-1 align-middle"><Settings2 className="w-3.5 h-3.5 text-[#578cff]" /></span>{" "}
               innovation.
             </p>
           </Reveal>
@@ -262,7 +265,8 @@ export default function HomePage() {
       </section>
 
       {/* WHY CHOOSE US */}
-      <section className="bg-white py-20 px-6 border-t border-[#f0f0f0]">
+      <section className="relative overflow-hidden bg-white py-20 px-6 border-t border-[#f0f0f0]">
+        <GridBackground variant="purple" glowPosition="top-left" />
         <div className="max-w-5xl mx-auto">
           <Reveal>
             <SectionTag>Why Us</SectionTag>
@@ -462,7 +466,8 @@ export default function HomePage() {
 
       {/* FINAL CTA */}
       <section className="px-6 pb-12">
-        <div className="cta-gradient rounded-3xl py-16 px-8 text-center max-w-6xl mx-auto">
+        <div className="relative overflow-hidden cta-gradient rounded-3xl py-16 px-8 text-center max-w-6xl mx-auto">
+          <GridBackground variant="none" />
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-5 leading-tight max-w-2xl mx-auto" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}>
               If you can&apos;t explain your AI decisions today, let&apos;s fix that.

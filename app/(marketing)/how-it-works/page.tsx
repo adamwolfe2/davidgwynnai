@@ -56,7 +56,7 @@ const phases = [
       },
       {
         heading: "The 7 Layers of the Decision Receipt™",
-        body: "Every Decision Receipt™ captures: (1) Decision description and classification, (2) Data inputs and model version, (3) Rationale and alternatives considered, (4) Human oversight record, (5) Applicable controls, (6) Responsible officer, and (7) Attestation and timestamp.",
+        body: "Every Decision Receipt™ captures: (1) Intent & Authority, (2) Context & Data Provenance, (3) Risk Declaration, (4) AI Contribution, (5) Human Judgment, (6) Controls in Force, and (7) Outcome & Monitoring.",
       },
     ],
   },

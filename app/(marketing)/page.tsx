@@ -412,10 +412,10 @@ export default function HomePage() {
           </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
             {[
-              { n: "01", title: "Decision Defensibility Assessment", body: "A focused diagnostic of where your highest-exposure AI decisions live and what your current evidence file looks like. Most organizations discover gaps in the first session.", demo: <ServiceDemo1 />, delay: 0.05 },
+              { n: "01", title: "Decision Exposure Assessment", body: "A focused diagnostic of where your highest-exposure AI decisions live and what your current evidence file looks like. Most organizations discover gaps in the first session.", demo: <ServiceDemo1 />, delay: 0.05 },
               { n: "02", title: "PrescienceOS™ Implementation", body: "Full deployment of the Decision Receipt™ architecture and Decision Registry, calibrated to your regulatory environment and live before your next examination.", demo: <ServiceDemo2 />, delay: 0.1 },
-              { n: "03", title: "Board & GC Advisory", body: "Ongoing counsel for directors and general counsel navigating AI governance obligations, including fiduciary duty documentation, director safe harbor memos, and board attestation frameworks.", demo: <ServiceDemo3 />, delay: 0.05 },
-              { n: "04", title: "Governance Readiness for Regulated Industries", body: "OCC model risk alignment, state insurance regulatory response, healthcare AI accountability, for organizations that need to demonstrate governance, not just describe it.", demo: <ServiceDemo4 />, delay: 0.1 },
+              { n: "03", title: "Director Safe Harbor & Board Governance", body: "Ongoing counsel for directors and general counsel navigating AI governance obligations, including fiduciary duty documentation, director safe harbor memos, and board attestation frameworks.", demo: <ServiceDemo3 />, delay: 0.05 },
+              { n: "04", title: "Regulatory Response & Examination Readiness", body: "OCC model risk alignment, state insurance regulatory response, healthcare AI accountability, for organizations that need to demonstrate governance, not just describe it.", demo: <ServiceDemo4 />, delay: 0.1 },
             ].map(({ n, title, body, demo, delay }) => (
               <Reveal key={n} delay={delay}>
                 <div className="bg-white rounded-2xl border border-[#e2e8f0] p-5 md:p-7 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full">

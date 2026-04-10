@@ -87,6 +87,15 @@ export function Footer() {
         </div>
       </div>
 
+      {/* Disclaimer */}
+      <div className="border-t border-[#e2e8f0]">
+        <div className="max-w-7xl mx-auto px-6 py-4">
+          <p className="text-xs text-[#292929]/40 leading-relaxed">
+            AI Advisors, LLC is an Oregon Limited Liability Corporation (&ldquo;LLC&rdquo;) and serves US-Based regulated industries. AI Advisors, LLC does not provide legal, tax, financial, or investment advice. Interested persons should contact their licensed professional(s).
+          </p>
+        </div>
+      </div>
+
       {/* Bottom bar */}
       <div className="border-t border-[#e2e8f0]">
         <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">

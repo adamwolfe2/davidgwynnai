@@ -11,11 +11,11 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "David W. Gwynn | AI Advisors, LLC — AI Governance & Decision Defensibility",
+    default: "AI Advisors, LLC — The Flight Recorder for Your AI Decisions",
     template: "%s | AI Advisors, LLC",
   },
   description:
-    "I build Decision Defensibility Infrastructure for executives and boards in banks, insurers, and health systems — so when the scrutiny comes, the record is already there.",
+    "AI Advisors, LLC builds Decision Defensibility Infrastructure for executives and boards in banks, insurers, and health systems — so when the scrutiny comes, the record is already there.",
   keywords: [
     "AI governance",
     "decision defensibility",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     "regulated industries AI",
   ],
   openGraph: {
-    title: "David W. Gwynn | AI Advisors, LLC",
+    title: "AI Advisors, LLC — The Flight Recorder for Your AI Decisions",
     description:
       "AI Governance & Decision Defensibility Infrastructure for banks, insurers, and health systems.",
     url: "https://www.aiadvisorsllc.com",
@@ -35,15 +35,15 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/og-image.png",
-        width: 3158,
-        height: 1454,
-        alt: "AI Advisors LLC — AI Governance & Decision Defensibility",
+        width: 2796,
+        height: 1502,
+        alt: "AI Advisors LLC — The Flight Recorder for Your AI Decisions",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "David W. Gwynn | AI Advisors, LLC",
+    title: "AI Advisors, LLC — The Flight Recorder for Your AI Decisions",
     description:
       "AI Governance & Decision Defensibility Infrastructure for banks, insurers, and health systems.",
     images: ["/og-image.png"],

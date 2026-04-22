@@ -3,6 +3,8 @@ import { Inter } from "next/font/google"
 import Script from "next/script"
 import "./globals.css"
 
+const GA_ID = "G-OVXVR4BSGO"
+
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
@@ -58,6 +60,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} antialiased`}>
       <body className="min-h-full flex flex-col">{children}</body>
+      <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
+      <Script id="ga-init" strategy="afterInteractive">{`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '${GA_ID}');
+      `}</Script>
       <Script src="https://cdn.idpixel.app/v1/idp-analytics-69d8475a58b55f8c5c2737f3.min.js" strategy="afterInteractive" />
     </html>
   )

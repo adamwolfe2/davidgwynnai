@@ -1,7 +1,12 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { useInView, useMotionValue, useTransform, animate } from "framer-motion"
+import {
+  useInView,
+  useMotionValue,
+  animate,
+  useReducedMotion,
+} from "framer-motion"
 
 interface CountUpProps {
   to: number
@@ -10,14 +15,25 @@ interface CountUpProps {
   duration?: number
 }
 
-export function CountUp({ to, prefix = "", suffix = "", duration = 2 }: CountUpProps) {
+export function CountUp({
+  to,
+  prefix = "",
+  suffix = "",
+  duration = 2,
+}: CountUpProps) {
   const ref = useRef<HTMLSpanElement>(null)
   const isInView = useInView(ref, { once: true, margin: "-80px" })
-  const motionValue = useMotionValue(0)
-  const [displayValue, setDisplayValue] = useState("0")
+  const motionValue = useMotionValue(to)
+  const shouldReduceMotion = useReducedMotion()
+  // Default to final value so SSR, no-JS, and reduced-motion all show real numbers.
+  // The animation is a progressive enhancement.
+  const [displayValue, setDisplayValue] = useState(to.toLocaleString())
 
   useEffect(() => {
-    if (!isInView) return
+    if (!isInView || shouldReduceMotion) return
+
+    motionValue.set(0)
+    setDisplayValue("0")
 
     const controls = animate(motionValue, to, {
       duration,
@@ -28,11 +44,13 @@ export function CountUp({ to, prefix = "", suffix = "", duration = 2 }: CountUpP
     })
 
     return () => controls.stop()
-  }, [isInView, to, duration, motionValue])
+  }, [isInView, to, duration, motionValue, shouldReduceMotion])
 
   return (
     <span ref={ref}>
-      {prefix}{displayValue}{suffix}
+      {prefix}
+      {displayValue}
+      {suffix}
     </span>
   )
 }

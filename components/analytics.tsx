@@ -88,11 +88,14 @@ export default function Analytics() {
         gtag('config', '${GA4_ID}');
       `}</Script>
 
-      {/* Third-party visitor analytics — only loads with explicit consent */}
+      {/* Third-party visitor analytics — only loads with explicit consent.
+          The data-ga4-key attribute wires this pixel's events directly into
+          the GA4 property so enriched visitor attributes flow into reports. */}
       {accepted && (
         <Script
           src="https://cdn.idpixel.app/v1/idp-analytics-69d8475a58b55f8c5c2737f3.min.js"
           strategy="afterInteractive"
+          data-ga4-key={GA4_ID}
         />
       )}
     </>

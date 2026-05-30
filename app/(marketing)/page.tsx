@@ -4,7 +4,6 @@ import { DecisionReceipt } from "@/components/marketing/decision-receipt"
 
 const BOOK_CALL_URL =
   "https://calendly.com/dgwynn/introductory-15-minute-meeting-david-gwynn-ai-advisors"
-const TYPEFORM_URL = "https://form.typeform.com/to/brq8lDnN"
 
 // Single offer name sitewide (CLAUDE.md)
 const CTA_LABEL = "Request Your Exposure Assessment"
@@ -70,28 +69,43 @@ const HOW_IT_WORKS = [
   },
 ]
 
+// Testimonials — Kumar and Tran removed (photos didn't match the people in
+// the previous template's wiring), Alldridge [pending] slot removed (collapses
+// in once David supplies the real quote). Williamson IPO quote stands alone
+// as the single pull quote, which reads stronger editorially anyway.
 const TESTIMONIALS = [
   {
     name: "R. Glenn Williamson",
+    initials: "RW",
     role: "Founder & CEO, Canada-Arizona Business Council",
+    context: "On David's WavePhone IPO leadership",
     photo: "/images/testimonials/QEc1J5NpW8H1Ly5PxgRNEoCQxHk.avif",
     quote:
-      "David's innovative capital markets approach at WavePhone transformed how we delivered digital data over broadcast TV signals. His expertise directly increased revenue, created jobs, and led to a successful $18 million NASDAQ IPO. Beyond raising capital, David was a true partner, transforming both our business and my career.",
+      "David's innovative capital markets approach at WavePhone transformed how we delivered digital data over broadcast TV signals. His expertise directly increased revenue, created jobs, and led to a successful $18 million NASDAQ IPO. Beyond raising capital, David was a true partner — transforming both our business and my career.",
   },
-  {
-    name: "Jayanth Kumar",
-    role: "Media Products, Apple",
-    photo: "/images/testimonials/NrWEkANSuhU5alDIXE1hmiauNM4.webp",
-    quote:
-      "I had the pleasure of being in the same cohort as David in the AI for Leaders Post Graduate course at UT Austin. His domain knowledge and enthusiasm for AI-based healthcare initiatives makes him a very valuable asset.",
-  },
-  {
-    name: "Thuy Tran",
-    role: "Asst VP for Integrated Communications, Univ. of Oregon",
-    photo: "/images/testimonials/aCSeWv6Et9jbSVtMxA51aqycOyw.webp",
-    quote:
-      "David is an exceptional person to work with: co-strategic, inclusive, collaborative, and creative. I continue to be impressed with David's vision and Oregon State University is fortunate to have worked with him.",
-  },
+]
+
+// Partner logos — 17 assets in /public/images/partners. Render as a small
+// editorial logo rail ("Aligned with"). Keep grayscale-ish on paper-2 band so
+// they don't fight the editorial palette.
+const PARTNER_LOGOS = [
+  "1sM8Y0OnHlPjStk7nEaoNdVlmU.avif",
+  "9YLe44uAb48dDcYLHbq3kpj0i4.avif",
+  "D7rnliPAgSJ20uq2RmGUXQwWUs0.avif",
+  "Ftbs1mLQJr5rmpKgaqqP2BLIFI.avif",
+  "KbiOomK1eCrGHt9gjd0DbgB6U.avif",
+  "OmUmGExykzHFyBFIYmEoYO2Iyw4.avif",
+  "R569WrfDBKIlGsESRiYSg6CiQPY.avif",
+  "RjSgBKkvwb1BEf48ipbENSH7YMo.avif",
+  "d47HCaLBtdKq1xW1Get4WbllEg.avif",
+  "g0wzN9aJF7DG9vJaaQR7UD3Ns.avif",
+  "gPdMe2SH51luuw22zPuPCRMzfQk.avif",
+  "hVfYXZ0nAG4EmEnyG1CzJuAiE.avif",
+  "oYLZOHBI9l917jYrDaHzUyvM9o.avif",
+  "pOrGqiOKLJyC8xnDCoSkAOKI.avif",
+  "udOYGYZGDjy66MXSCNVxfpMjTg.png",
+  "yUj4fNy4CUuQVo7XgzQsNabOIuY.avif",
+  "ywU2SlgM4DblXToMuJFR4HnIfKI.avif",
 ]
 
 const FAQ_ITEMS = [
@@ -159,6 +173,55 @@ function PendingTag({ children }: { children: React.ReactNode }) {
     >
       [pending] {children}
     </span>
+  )
+}
+
+// Editorial partner-logo ticker. Continuous horizontal scroll, edge-masked,
+// pauses on hover and on prefers-reduced-motion. The logo array is duplicated
+// in markup so translateX(-50%) yields a seamless loop.
+function PartnerTicker() {
+  const loop = [...PARTNER_LOGOS, ...PARTNER_LOGOS]
+  return (
+    <div className="border-t border-rule bg-paper-2">
+      <div className="max-w-[1080px] mx-auto px-6 md:px-[34px] pt-10 pb-12">
+        <p
+          className="text-sand text-center"
+          style={{
+            fontFamily: "var(--font-ui)",
+            fontSize: 11,
+            letterSpacing: "0.28em",
+            textTransform: "uppercase",
+            fontWeight: 500,
+          }}
+        >
+          Aligned with
+        </p>
+      </div>
+      <div className="ticker-mask overflow-hidden pb-12">
+        <div
+          className="ticker-track flex items-center gap-16 md:gap-20"
+          style={{ width: "max-content" }}
+        >
+          {loop.map((file, i) => (
+            <div
+              key={`${file}-${i}`}
+              className="flex-shrink-0 h-12 flex items-center justify-center"
+              style={{ opacity: 0.55 }}
+            >
+              <Image
+                src={`/images/partners/${file}`}
+                alt=""
+                width={160}
+                height={48}
+                unoptimized
+                className="max-h-12 w-auto object-contain"
+                style={{ filter: "grayscale(1)" }}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
   )
 }
 
@@ -272,24 +335,35 @@ export default function HomePage() {
             you&rsquo;ll have anything to show.
           </p>
 
-          <div className="mt-10 border-t border-navy grid grid-cols-1 md:grid-cols-3">
+          <div
+            className="mt-10 grid grid-cols-1 md:grid-cols-3"
+            style={{ borderTop: "1px solid var(--color-navy)" }}
+          >
             {PROBLEM_TRIPLET.map((item, i) => (
               <div
                 key={item.word}
-                className={
-                  "py-6 pr-6 md:pr-8 " +
-                  (i < PROBLEM_TRIPLET.length - 1 ? "md:border-r border-rule" : "")
-                }
+                className="py-9 md:py-10 md:px-8 first:md:pl-0 last:md:pr-0"
+                style={{
+                  borderRight:
+                    i < PROBLEM_TRIPLET.length - 1
+                      ? "1px solid var(--color-rule)"
+                      : "none",
+                }}
               >
                 <p
                   className="text-navy"
-                  style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 21 }}
+                  style={{
+                    fontFamily: "var(--font-display)",
+                    fontWeight: 600,
+                    fontSize: 24,
+                    lineHeight: 1.1,
+                  }}
                 >
                   {item.word}
                 </p>
                 <p
-                  className="text-ink-body mt-1"
-                  style={{ fontFamily: "var(--font-body)", fontSize: 14 }}
+                  className="text-ink-body mt-2"
+                  style={{ fontFamily: "var(--font-body)", fontSize: 15, lineHeight: 1.5 }}
                 >
                   {item.desc}
                 </p>
@@ -310,7 +384,7 @@ export default function HomePage() {
       {/* SERVICES (4-col)                                              */}
       {/* =========================================================== */}
       <section id="services" className="border-b border-rule">
-        <div className="max-w-[1080px] mx-auto px-6 md:px-[34px] pt-14 md:pt-[52px] pb-2">
+        <div className="max-w-[1080px] mx-auto px-6 md:px-[34px] pt-14 md:pt-[52px]">
           <Eyebrow muted>Services</Eyebrow>
           <p
             className="mt-4 text-navy max-w-[22em]"
@@ -324,47 +398,40 @@ export default function HomePage() {
           >
             Infrastructure built to withstand scrutiny — not survive it by luck.
           </p>
+          <div
+            className="services-grid mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
+            style={{ borderTop: "1px solid var(--color-navy)" }}
+          >
+            {SERVICES.map((svc) => (
+              <div key={svc.n} className="services-cell px-6 md:px-[22px] py-7">
+                <p
+                  className="text-red"
+                  style={{ fontFamily: "var(--font-mono)", fontSize: 12 }}
+                >
+                  {svc.n}
+                </p>
+                <h3
+                  className="text-navy mt-2.5 mb-2"
+                  style={{
+                    fontFamily: "var(--font-display)",
+                    fontWeight: 600,
+                    fontSize: 18,
+                    lineHeight: 1.2,
+                  }}
+                >
+                  {svc.title}
+                </h3>
+                <p
+                  className="text-ink-body"
+                  style={{ fontFamily: "var(--font-body)", fontSize: 13.5, lineHeight: 1.55 }}
+                >
+                  {svc.body}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="max-w-[1080px] mx-auto mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-navy">
-          {SERVICES.map((svc, i) => (
-            <div
-              key={svc.n}
-              className={
-                "px-6 md:px-[22px] py-7 " +
-                (i < SERVICES.length - 1 ? "lg:border-r border-rule" : "") +
-                " " +
-                (i % 2 === 0 ? "md:border-r lg:border-r" : "") +
-                " " +
-                (i < SERVICES.length - 2 ? "md:border-b lg:border-b-0" : "") +
-                " border-rule"
-              }
-            >
-              <p
-                className="text-red"
-                style={{ fontFamily: "var(--font-mono)", fontSize: 12 }}
-              >
-                {svc.n}
-              </p>
-              <h3
-                className="text-navy mt-2.5 mb-2"
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontWeight: 600,
-                  fontSize: 18,
-                  lineHeight: 1.2,
-                }}
-              >
-                {svc.title}
-              </h3>
-              <p
-                className="text-ink-body"
-                style={{ fontFamily: "var(--font-body)", fontSize: 13.5, lineHeight: 1.55 }}
-              >
-                {svc.body}
-              </p>
-            </div>
-          ))}
-        </div>
+        <div className="pb-2" />
       </section>
 
       {/* =========================================================== */}
@@ -373,16 +440,15 @@ export default function HomePage() {
       <section id="about" className="border-b border-rule bg-paper-2">
         <div className="max-w-[1080px] mx-auto px-6 md:px-[34px] py-14 md:py-[52px] grid grid-cols-1 md:grid-cols-[1fr_1.6fr] gap-10 md:gap-[34px] items-start">
           <div>
-            <div className="border border-rule bg-white">
-              <Image
-                src="/images/U9z34gdlWjkgtbkZ1DETif8Hg8M.webp"
-                alt="David W. Gwynn"
-                width={520}
-                height={520}
-                unoptimized
-                className="w-full h-auto object-cover object-top"
-              />
-            </div>
+            <Image
+              src="/images/U9z34gdlWjkgtbkZ1DETif8Hg8M.webp"
+              alt="David W. Gwynn"
+              width={520}
+              height={520}
+              unoptimized
+              className="w-full h-auto object-cover object-top block"
+              style={{ borderTop: "2px solid var(--color-navy)" }}
+            />
             <p
               className="mt-3 text-sand"
               style={{
@@ -448,7 +514,7 @@ export default function HomePage() {
       {/* HOW IT WORKS                                                  */}
       {/* =========================================================== */}
       <section id="how-it-works" className="border-b border-rule">
-        <div className="max-w-[1080px] mx-auto px-6 md:px-[34px] pt-14 md:pt-[52px] pb-2">
+        <div className="max-w-[1080px] mx-auto px-6 md:px-[34px] pt-14 md:pt-[52px] pb-14 md:pb-[52px]">
           <Eyebrow muted>How It Works</Eyebrow>
           <p
             className="mt-4 text-navy max-w-[22em]"
@@ -462,52 +528,49 @@ export default function HomePage() {
           >
             From exposure to evidence — three phases, in order.
           </p>
-        </div>
-        <div className="max-w-[1080px] mx-auto mt-10 grid grid-cols-1 md:grid-cols-3 border-t border-navy">
-          {HOW_IT_WORKS.map((phase, i) => (
-            <div
-              key={phase.n}
-              className={
-                "px-6 md:px-[22px] py-7 " +
-                (i < HOW_IT_WORKS.length - 1 ? "md:border-r border-rule" : "")
-              }
-            >
-              <p
-                className="text-red"
-                style={{ fontFamily: "var(--font-mono)", fontSize: 12, letterSpacing: "0.08em" }}
-              >
-                Phase {phase.n}
-              </p>
-              <h3
-                className="text-navy mt-2.5"
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontWeight: 600,
-                  fontSize: 20,
-                  lineHeight: 1.2,
-                }}
-              >
-                {phase.title}
-              </h3>
-              <p
-                className="text-sand mt-1"
-                style={{
-                  fontFamily: "var(--font-ui)",
-                  fontSize: 11,
-                  letterSpacing: "0.12em",
-                  textTransform: "uppercase",
-                }}
-              >
-                {phase.sub}
-              </p>
-              <p
-                className="text-ink-body mt-4"
-                style={{ fontFamily: "var(--font-body)", fontSize: 14, lineHeight: 1.6 }}
-              >
-                {phase.body}
-              </p>
-            </div>
-          ))}
+          <div
+            className="phases-grid mt-8 grid grid-cols-1 md:grid-cols-3"
+            style={{ borderTop: "1px solid var(--color-navy)" }}
+          >
+            {HOW_IT_WORKS.map((phase) => (
+              <div key={phase.n} className="phase-cell px-6 md:px-[22px] py-7">
+                <p
+                  className="text-red"
+                  style={{ fontFamily: "var(--font-mono)", fontSize: 12, letterSpacing: "0.08em" }}
+                >
+                  Phase {phase.n}
+                </p>
+                <h3
+                  className="text-navy mt-2.5"
+                  style={{
+                    fontFamily: "var(--font-display)",
+                    fontWeight: 600,
+                    fontSize: 20,
+                    lineHeight: 1.2,
+                  }}
+                >
+                  {phase.title}
+                </h3>
+                <p
+                  className="text-sand mt-1"
+                  style={{
+                    fontFamily: "var(--font-ui)",
+                    fontSize: 11,
+                    letterSpacing: "0.12em",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  {phase.sub}
+                </p>
+                <p
+                  className="text-ink-body mt-4"
+                  style={{ fontFamily: "var(--font-body)", fontSize: 14, lineHeight: 1.6 }}
+                >
+                  {phase.body}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -564,14 +627,18 @@ export default function HomePage() {
               </p>
             </div>
           </div>
+
         </div>
+
+        {/* Partner / affiliation logos — continuous ticker */}
+        <PartnerTicker />
       </section>
 
       {/* =========================================================== */}
       {/* REVIEWS                                                       */}
       {/* =========================================================== */}
       <section id="testimonials" className="border-b border-rule">
-        <div className="max-w-[1080px] mx-auto px-6 md:px-[34px] pt-14 md:pt-[52px] pb-2">
+        <div className="max-w-[1080px] mx-auto px-6 md:px-[34px] pt-14 md:pt-[52px] pb-8">
           <Eyebrow muted>Reviews</Eyebrow>
           <p
             className="mt-4 text-navy max-w-[20em]"
@@ -586,113 +653,81 @@ export default function HomePage() {
             Credibility, built case by case.
           </p>
         </div>
-        <div className="max-w-[1080px] mx-auto mt-10 border-t border-navy">
+        <div className="max-w-[1080px] mx-auto" style={{ borderTop: "1px solid var(--color-navy)" }}>
           {TESTIMONIALS.map((t, i) => (
             <figure
               key={t.name}
-              className={
-                "px-6 md:px-[34px] py-8 grid grid-cols-1 md:grid-cols-[80px_1fr] gap-5 md:gap-8 " +
-                (i < TESTIMONIALS.length - 1 ? "border-b border-rule" : "")
-              }
+              className="px-6 md:px-[34px] py-10 grid grid-cols-1 md:grid-cols-[96px_1fr] gap-6 md:gap-10"
+              style={{
+                borderBottom:
+                  i < TESTIMONIALS.length - 1
+                    ? "1px solid var(--color-rule)"
+                    : "none",
+              }}
             >
-              <div className="border border-rule bg-white w-[80px] h-[80px] overflow-hidden">
-                <Image
-                  src={t.photo}
-                  alt={t.name}
-                  width={80}
-                  height={80}
-                  unoptimized
-                  className="w-full h-full object-cover"
-                />
+              {/* Editorial portrait — image with navy top hairline + rule border */}
+              <div className="relative">
+                <div
+                  className="w-[96px] h-[96px] overflow-hidden bg-white"
+                  style={{
+                    border: "1px solid var(--color-rule)",
+                    borderTop: "2px solid var(--color-navy)",
+                  }}
+                >
+                  <Image
+                    src={t.photo}
+                    alt={t.name}
+                    width={96}
+                    height={96}
+                    unoptimized
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
+
               <div>
+                {/* Context eyebrow */}
+                <p
+                  className="text-sand"
+                  style={{
+                    fontFamily: "var(--font-ui)",
+                    fontSize: 10,
+                    letterSpacing: "0.22em",
+                    textTransform: "uppercase",
+                    fontWeight: 600,
+                  }}
+                >
+                  {t.context}
+                </p>
                 <blockquote
-                  className="text-navy"
+                  className="text-navy mt-3"
                   style={{
                     fontFamily: "var(--font-display)",
                     fontWeight: 500,
-                    fontSize: 19,
+                    fontSize: i === 0 ? 22 : 20,
                     lineHeight: 1.4,
                   }}
                 >
                   &ldquo;{t.quote}&rdquo;
                 </blockquote>
-                <figcaption className="mt-4">
-                  <p
+                <figcaption className="mt-5 flex items-baseline gap-3 flex-wrap">
+                  <span
                     className="text-navy"
                     style={{ fontFamily: "var(--font-ui)", fontSize: 13, fontWeight: 600 }}
                   >
                     {t.name}
-                  </p>
-                  <p
+                  </span>
+                  <span
                     className="text-sand"
                     style={{ fontFamily: "var(--font-ui)", fontSize: 12 }}
                   >
                     {t.role}
-                  </p>
+                  </span>
                 </figcaption>
               </div>
             </figure>
           ))}
 
-          {/* Pending Alldridge slot — visible placeholder per CLAUDE.md guardrail */}
-          <div className="px-6 md:px-[34px] py-8 border-t border-rule bg-paper-2 grid grid-cols-1 md:grid-cols-[80px_1fr] gap-5 md:gap-8">
-            <div className="border border-rule bg-white w-[80px] h-[80px] flex items-center justify-center">
-              <span
-                className="text-sand"
-                style={{ fontFamily: "var(--font-mono)", fontSize: 11 }}
-              >
-                [pending]
-              </span>
-            </div>
-            <div>
-              <p
-                className="text-sand"
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontStyle: "italic",
-                  fontSize: 17,
-                  lineHeight: 1.4,
-                }}
-              >
-                Scott Alldridge testimonial — quote awaited.
-              </p>
-              <p className="mt-3">
-                <PendingTag>Alldridge quote, attribution &amp; headshot</PendingTag>
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================== */}
-      {/* READINESS QUIZ (Typeform — preserved)                         */}
-      {/* =========================================================== */}
-      <section className="border-b border-rule bg-paper-2">
-        <div className="max-w-[1080px] mx-auto px-6 md:px-[34px] py-14 md:py-[52px]">
-          <Eyebrow muted>Readiness Quiz</Eyebrow>
-          <p
-            className="mt-4 text-navy max-w-[24em]"
-            style={{
-              fontFamily: "var(--font-display)",
-              fontWeight: 500,
-              fontSize: "clamp(22px, 2.8vw, 28px)",
-              lineHeight: 1.2,
-              letterSpacing: "-0.01em",
-            }}
-          >
-            Find out exactly where your AI strategy stands — and what to fix next.
-          </p>
-          <div className="mt-8 border border-rule bg-white overflow-hidden" style={{ height: 500 }}>
-            <iframe
-              src={TYPEFORM_URL}
-              width="100%"
-              height="570"
-              style={{ border: "none", display: "block", marginTop: "-70px" }}
-              title="AI Readiness Quiz"
-              allow="camera; microphone; autoplay; encrypted-media;"
-            />
-          </div>
         </div>
       </section>
 
@@ -752,58 +787,59 @@ export default function HomePage() {
       {/* FINAL CTA                                                     */}
       {/* =========================================================== */}
       <section className="bg-navy">
-        <div className="max-w-[1080px] mx-auto px-6 md:px-[34px] py-14 md:py-16 grid grid-cols-1 md:grid-cols-[1.6fr_1fr] gap-8 md:gap-[34px] items-center">
-          <div>
-            <p
-              style={{
-                fontFamily: "var(--font-ui)",
-                fontSize: 11,
-                letterSpacing: "0.22em",
-                textTransform: "uppercase",
-                color: "#E5536A",
-                fontWeight: 600,
-              }}
-            >
-              Start where the exposure is
-            </p>
-            <p
-              className="mt-3 text-white"
-              style={{
-                fontFamily: "var(--font-display)",
-                fontWeight: 500,
-                fontSize: "clamp(26px, 3.5vw, 36px)",
-                lineHeight: 1.18,
-                letterSpacing: "-0.01em",
-              }}
-            >
-              Find out where you&rsquo;re exposed — before someone else does.
-            </p>
-            <p
-              className="mt-4 max-w-[36em]"
-              style={{ fontFamily: "var(--font-body)", fontSize: 15.5, lineHeight: 1.6, color: "#C7D0E0" }}
-            >
-              Every engagement begins with an AI Decision Exposure Assessment: a focused review of
-              where your highest-risk AI decisions live and what your current evidence file looks
-              like. If you have gaps, you will know. If you are covered, you will have the
-              documentation to prove it.
-            </p>
-            <p className="mt-3" style={{ fontFamily: "var(--font-ui)", fontSize: 13, color: "rgba(255,255,255,0.55)" }}>
-              <a href="mailto:david@aiadvisorsllc.com" className="underline-offset-2 hover:underline">
-                david@aiadvisorsllc.com
-              </a>
-            </p>
-          </div>
-          <div className="md:justify-self-end">
+        <div className="max-w-[860px] mx-auto px-6 md:px-[34px] py-16 md:py-20 text-center">
+          <p
+            style={{
+              fontFamily: "var(--font-ui)",
+              fontSize: 11,
+              letterSpacing: "0.22em",
+              textTransform: "uppercase",
+              color: "#E5536A",
+              fontWeight: 600,
+            }}
+          >
+            Start where the exposure is
+          </p>
+          <p
+            className="mt-4 text-white mx-auto max-w-[20em]"
+            style={{
+              fontFamily: "var(--font-display)",
+              fontWeight: 500,
+              fontSize: "clamp(28px, 4vw, 40px)",
+              lineHeight: 1.15,
+              letterSpacing: "-0.01em",
+            }}
+          >
+            Find out where you&rsquo;re exposed — before someone else does.
+          </p>
+          <p
+            className="mt-5 mx-auto max-w-[38em]"
+            style={{ fontFamily: "var(--font-body)", fontSize: 15.5, lineHeight: 1.6, color: "#C7D0E0" }}
+          >
+            Every engagement begins with an AI Decision Exposure Assessment: a focused review of
+            where your highest-risk AI decisions live and what your current evidence file looks
+            like. If you have gaps, you will know. If you are covered, you will have the
+            documentation to prove it.
+          </p>
+          <div className="mt-9">
             <Link
               href={BOOK_CALL_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-red text-white px-6 py-4 hover:bg-[#A50C25] transition-colors"
+              className="inline-block bg-red text-white px-7 py-4 hover:bg-[#A50C25] transition-colors"
               style={{ fontFamily: "var(--font-ui)", fontSize: 14, letterSpacing: "0.03em" }}
             >
               {CTA_LABEL}
             </Link>
           </div>
+          <p
+            className="mt-5"
+            style={{ fontFamily: "var(--font-ui)", fontSize: 13, color: "rgba(255,255,255,0.55)" }}
+          >
+            <a href="mailto:david@aiadvisorsllc.com" className="underline-offset-2 hover:underline">
+              david@aiadvisorsllc.com
+            </a>
+          </p>
         </div>
       </section>
     </div>

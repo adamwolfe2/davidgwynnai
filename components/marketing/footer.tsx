@@ -1,19 +1,16 @@
 import Link from "next/link"
 
-const BOOK_CALL_URL =
-  "https://calendly.com/dgwynn/introductory-15-minute-meeting-david-gwynn-ai-advisors"
-
 /**
- * Editorial footer — navy background, white text, single red CTA button.
- * Closes the page with the same "evidence on demand" tone as the masthead.
+ * Editorial footer — navy background, white text. No CTA button (the final
+ * CTA section above carries the action). Brand line, link grid, disclaimer.
  */
 export function Footer() {
   return (
     <footer className="bg-navy text-white mt-auto">
-      {/* Primary close-out band */}
-      <div className="max-w-[1080px] mx-auto px-6 md:px-[34px] py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      {/* Brand row — descriptor only; final CTA above carries the action */}
+      <div className="max-w-[1080px] mx-auto px-6 md:px-[34px] pt-10 pb-6 border-t border-white/15">
         <p
-          className="max-w-[26em]"
+          className="max-w-[36em]"
           style={{
             fontFamily: "var(--font-body)",
             fontSize: 14,
@@ -23,15 +20,6 @@ export function Footer() {
         >
           Decision Defensibility Infrastructure for boards, GCs, and regulated enterprises.
         </p>
-        <Link
-          href={BOOK_CALL_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block bg-red text-white px-5 py-3 hover:bg-[#A50C25] transition-colors"
-          style={{ fontFamily: "var(--font-ui)", fontSize: 13, letterSpacing: "0.03em" }}
-        >
-          Request Your Exposure Assessment
-        </Link>
       </div>
 
       {/* Link rows */}

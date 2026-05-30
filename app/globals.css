@@ -75,3 +75,87 @@ body {
   outline-offset: 2px;
   border-radius: 2px;
 }
+
+/* Editorial grid hairlines — responsive, bulletproof.
+   Used by services (4-col) and how-it-works (3-col) sections.
+   Mobile: cells stack with bottom hairlines between (last has none).
+   md (2-col, services only): right hairline between cols, bottom between rows.
+   lg+: single row, right hairlines between cols. */
+
+.services-grid .services-cell + .services-cell {
+  border-top: 1px solid var(--color-rule);
+}
+
+@media (min-width: 768px) {
+  .services-grid .services-cell {
+    border-top: none;
+  }
+  .services-grid .services-cell:nth-child(odd) {
+    border-right: 1px solid var(--color-rule);
+  }
+  .services-grid .services-cell:nth-child(-n+2) {
+    border-bottom: 1px solid var(--color-rule);
+  }
+}
+
+@media (min-width: 1024px) {
+  .services-grid .services-cell {
+    border-bottom: none;
+  }
+  .services-grid .services-cell:not(:last-child) {
+    border-right: 1px solid var(--color-rule);
+  }
+}
+
+.phases-grid .phase-cell + .phase-cell {
+  border-top: 1px solid var(--color-rule);
+}
+
+@media (min-width: 768px) {
+  .phases-grid .phase-cell {
+    border-top: none;
+  }
+  .phases-grid .phase-cell:not(:last-child) {
+    border-right: 1px solid var(--color-rule);
+  }
+}
+
+/* Partner logos ticker — single row, infinite horizontal scroll.
+   Array is duplicated in markup so translateX(-50%) loops seamlessly.
+   Edge fade keeps the editorial calm — logos enter/exit instead of clipping.
+   Pauses on hover so a viewer can pin a logo, and on prefers-reduced-motion. */
+.ticker-mask {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    black 80px,
+    black calc(100% - 80px),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    black 80px,
+    black calc(100% - 80px),
+    transparent 100%
+  );
+}
+
+@keyframes ticker-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.ticker-track {
+  animation: ticker-scroll 55s linear infinite;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track {
+    animation: none;
+  }
+}

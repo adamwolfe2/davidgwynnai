@@ -134,66 +134,8 @@ body {
   }
 }
 
-/* Partner logos ticker — single row, infinite horizontal scroll.
-   Array is duplicated in markup so translateX(-50%) loops seamlessly.
-   Edge fade keeps the editorial calm — logos enter/exit instead of clipping.
-   Pauses on hover so a viewer can pin a logo, and on prefers-reduced-motion. */
-.ticker-mask {
-  /* Edge fade — narrower ramp on mobile so the visible window isn't dominated
-     by the mask gradient on small screens. */
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent 0,
-    black 28px,
-    black calc(100% - 28px),
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    to right,
-    transparent 0,
-    black 28px,
-    black calc(100% - 28px),
-    transparent 100%
-  );
-}
-
-@media (min-width: 768px) {
-  .ticker-mask {
-    -webkit-mask-image: linear-gradient(
-      to right,
-      transparent 0,
-      black 80px,
-      black calc(100% - 80px),
-      transparent 100%
-    );
-    mask-image: linear-gradient(
-      to right,
-      transparent 0,
-      black 80px,
-      black calc(100% - 80px),
-      transparent 100%
-    );
-  }
-}
-
-@keyframes ticker-scroll {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-.ticker-track {
-  animation: ticker-scroll 55s linear infinite;
-}
-
-.ticker-track:hover {
-  animation-play-state: paused;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .ticker-track {
-    animation: none;
-  }
-}
+/* Partner ticker CSS removed with the section itself per David's P0-4
+   (unverified affiliations). Restore when real labeled partners exist. */
 
 /* Legal page body — Source Serif 4 with editorial typography hierarchy.
    Used by /privacy and /terms LegalSection bodies. */

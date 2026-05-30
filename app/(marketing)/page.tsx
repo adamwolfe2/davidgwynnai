@@ -85,28 +85,11 @@ const TESTIMONIALS = [
   },
 ]
 
-// Partner logos — 17 assets in /public/images/partners. Render as a small
-// editorial logo rail ("Aligned with"). Keep grayscale-ish on paper-2 band so
-// they don't fight the editorial palette.
-const PARTNER_LOGOS = [
-  "1sM8Y0OnHlPjStk7nEaoNdVlmU.avif",
-  "9YLe44uAb48dDcYLHbq3kpj0i4.avif",
-  "D7rnliPAgSJ20uq2RmGUXQwWUs0.avif",
-  "Ftbs1mLQJr5rmpKgaqqP2BLIFI.avif",
-  "KbiOomK1eCrGHt9gjd0DbgB6U.avif",
-  "OmUmGExykzHFyBFIYmEoYO2Iyw4.avif",
-  "R569WrfDBKIlGsESRiYSg6CiQPY.avif",
-  "RjSgBKkvwb1BEf48ipbENSH7YMo.avif",
-  "d47HCaLBtdKq1xW1Get4WbllEg.avif",
-  "g0wzN9aJF7DG9vJaaQR7UD3Ns.avif",
-  "gPdMe2SH51luuw22zPuPCRMzfQk.avif",
-  "hVfYXZ0nAG4EmEnyG1CzJuAiE.avif",
-  "oYLZOHBI9l917jYrDaHzUyvM9o.avif",
-  "pOrGqiOKLJyC8xnDCoSkAOKI.avif",
-  "udOYGYZGDjy66MXSCNVxfpMjTg.png",
-  "yUj4fNy4CUuQVo7XgzQsNabOIuY.avif",
-  "ywU2SlgM4DblXToMuJFR4HnIfKI.avif",
-]
+// Partner / affiliation logos removed per David's P0-4. CLAUDE.md guardrail:
+// "As Seen On" logos: only real, labeled, linkable placements — otherwise omit.
+// The previous unlabeled marquee of template logos didn't meet that bar.
+// When David supplies verified affiliations with attribution + links, restore
+// the section with each mark labeled individually.
 
 const FAQ_ITEMS = [
   {
@@ -245,70 +228,14 @@ function RedRule() {
   return <span className="block w-[54px] h-[2px] bg-red" />
 }
 
-function PendingTag({ children }: { children: React.ReactNode }) {
-  return (
-    <span
-      className="inline-block border border-rule bg-paper-2 text-sand"
-      style={{
-        fontFamily: "var(--font-mono)",
-        fontSize: 11,
-        padding: "2px 8px",
-        letterSpacing: "0.04em",
-      }}
-    >
-      [pending] {children}
-    </span>
-  )
-}
+// PendingTag helper removed with the two callsites it served per David's
+// P0-1 + P0-2. Internal TODO markers belong in code comments, never rendered
+// publicly on a brand whose thesis is "every claim must be verifiable."
 
 // Editorial partner-logo ticker. Continuous horizontal scroll, edge-masked,
 // pauses on hover and on prefers-reduced-motion. The logo array is duplicated
 // in markup so translateX(-50%) yields a seamless loop.
-function PartnerTicker() {
-  const loop = [...PARTNER_LOGOS, ...PARTNER_LOGOS]
-  return (
-    <div className="border-t border-rule bg-paper-2">
-      <div className="max-w-[1080px] mx-auto px-6 md:px-[34px] pt-10 pb-12">
-        <p
-          className="text-sand text-center"
-          style={{
-            fontFamily: "var(--font-ui)",
-            fontSize: 11,
-            letterSpacing: "0.28em",
-            textTransform: "uppercase",
-            fontWeight: 500,
-          }}
-        >
-          Aligned with
-        </p>
-      </div>
-      <div className="ticker-mask overflow-hidden pb-12">
-        <div
-          className="ticker-track flex items-center gap-16 md:gap-20"
-          style={{ width: "max-content" }}
-        >
-          {loop.map((file, i) => (
-            <div
-              key={`${file}-${i}`}
-              className="flex-shrink-0 h-12 flex items-center justify-center"
-              style={{ opacity: 0.55 }}
-            >
-              <Image
-                src={`/images/partners/${file}`}
-                alt=""
-                width={160}
-                height={48}
-                unoptimized
-                className="max-h-12 w-auto object-contain"
-                style={{ filter: "grayscale(1)" }}
-              />
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  )
-}
+// PartnerTicker removed per David's P0-4. See PARTNER_LOGOS deletion comment.
 
 // ---------------------------------------------------------------------------
 // PAGE
@@ -395,14 +322,14 @@ export default function HomePage() {
             >
               The clock is running
             </span>
+            {/* TODO[counsel-gated]: EO N-5-26 specific copy pending Stoel Rives
+                clearance. Until then this stays at the "direction of travel" level
+                per CLAUDE.md content guardrails — David's own spec rule. */}
             <span
               className="text-ink-body"
               style={{ fontFamily: "var(--font-body)", fontSize: 14, lineHeight: 1.55 }}
             >
-              The regulatory direction is one way: evidence, on demand.{" "}
-              <span className="inline-block mt-1 sm:mt-0">
-                <PendingTag>counsel-cleared EO N-5-26 copy</PendingTag>
-              </span>
+              The regulatory direction is one way: evidence, on demand.
             </span>
           </div>
         </div>
@@ -467,7 +394,7 @@ export default function HomePage() {
       <section id="services" className="border-b border-rule">
         <div className="max-w-[1080px] mx-auto px-6 md:px-[34px] pt-16 md:pt-[64px]">
           <SectionHeader eyebrow="Services">
-            Infrastructure built to withstand scrutiny, not survive it by luck.
+            Built to withstand scrutiny, not outrun it.
           </SectionHeader>
           <div
             className="services-grid mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 text-center md:text-left"
@@ -672,9 +599,9 @@ export default function HomePage() {
               >
                 including a $18M NASDAQ IPO at WavePhone
               </p>
-              <p className="mt-3">
-                <PendingTag>$6.5B IPO/merger figure to confirm</PendingTag>
-              </p>
+              {/* TODO: add $6.5B IPO/merger figure once David confirms exact wording
+                  and attributable company name. Per defensibility brand thesis:
+                  unverified figures stay out of public copy. */}
             </div>
             <div>
               <p
@@ -692,9 +619,6 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-
-        {/* Partner / affiliation logos — continuous ticker */}
-        <PartnerTicker />
       </section>
 
       {/* =========================================================== */}

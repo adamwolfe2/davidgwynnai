@@ -40,7 +40,20 @@ export function PrescienceMarkReverse(props: { size?: number; className?: string
   return <PrescienceMark ink="#FFFFFF" tick="#E5536A" {...props} />
 }
 
-/** "POWERED BY Prescience⊕S" inline lockup — small label + mark + brand. */
+/**
+ * PoweredByPrescience — inline lockup that reads:
+ *   POWERED BY   PrescienceOS
+ * where the "O" in "PrescienceOS" is the reticle SVG.
+ *
+ * Fixed in David's P1-3:
+ * - Adds visible space between the "POWERED BY" eyebrow and the wordmark
+ *   (was collapsing to "POWERED BYPrescience·S").
+ * - Replaces the orphaned middle-dot glyph with the actual PrescienceMark
+ *   reticle component, used as the letter O so the wordmark reads
+ *   "PrescienceOS" with the crosshairs-in-O at the right size.
+ * - Uses --font-display (Newsreader) for the wordmark so kerning matches
+ *   the rest of the editorial brand.
+ */
 export function PoweredByPrescience({
   ink = "#1B2A4A",
   tick = "#C8102E",
@@ -51,21 +64,33 @@ export function PoweredByPrescience({
   muted?: string
 }) {
   return (
-    <div
-      className="flex items-center gap-2 justify-end"
-      style={{ fontFamily: "var(--font-ui)", fontSize: 11, letterSpacing: "0.06em" }}
-    >
-      <span style={{ color: muted }}>POWERED BY</span>
-      <PrescienceMark size={14} ink={ink} tick={tick} />
+    <div className="flex items-center justify-end gap-3">
       <span
+        style={{
+          color: muted,
+          fontFamily: "var(--font-ui)",
+          fontSize: 10,
+          letterSpacing: "0.22em",
+          textTransform: "uppercase",
+          fontWeight: 600,
+        }}
+      >
+        Powered by
+      </span>
+      <span
+        className="inline-flex items-baseline gap-[2px]"
         style={{
           color: ink,
           fontFamily: "var(--font-display)",
           fontWeight: 600,
-          fontSize: 13,
+          fontSize: 15,
+          letterSpacing: "0.005em",
         }}
+        aria-label="PrescienceOS"
       >
-        Prescience<span style={{ color: muted }}>·</span>S
+        <span>Prescience</span>
+        <PrescienceMark size={14} ink={ink} tick={tick} className="relative top-[1px]" />
+        <span>S</span>
       </span>
     </div>
   )

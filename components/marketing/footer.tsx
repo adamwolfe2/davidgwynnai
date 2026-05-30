@@ -109,15 +109,25 @@ export function Footer() {
           className="max-w-[1080px] mx-auto px-6 md:px-[34px] py-6 md:py-5 space-y-3 text-center md:text-left"
           style={{ fontFamily: "var(--font-ui)", fontSize: 11, color: "rgba(255,255,255,0.5)" }}
         >
+          {/* TODO[counsel-gated]: David's P1-2. Reconcile entity disclosure
+              between this LLC disclaimer and the trademark-owner line above
+              (Oregon LLC vs Delaware C-Corp / Prescience Holdings in formation).
+              Counsel must confirm the corporate story is internally consistent
+              before this disclaimer is finalized. */}
           <p className="leading-relaxed">
             AI Advisors, LLC is an Oregon Limited Liability Corporation (&ldquo;LLC&rdquo;) and serves
             US-Based regulated industries. AI Advisors, LLC does not provide legal, tax, financial,
             or investment advice. Interested persons should contact their licensed professional(s).
           </p>
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 pt-2">
+            {/* TODO[counsel-gated]: confirm trademark-owner entity (Oregon LLC
+                vs Delaware C-Corp in formation) before final publish. Per David's
+                P1-1 + P1-2: entity disclosure must be consistent across footer +
+                trademark line. Until cleared, "Prescience Holdings" stays as a
+                placeholder for the holding entity that will own the marks. */}
             <p>
-              PrescienceOS™, Decision Receipt™, and AI Decision Rating™ are trademarks of Prescience
-              Holdings.
+              PrescienceOS™, Decision Receipt™, and AIDR™ (AI Decision Record) are
+              trademarks of Prescience Holdings.
             </p>
             <p>&copy; 2026 AI Advisors, LLC. All rights reserved.</p>
           </div>

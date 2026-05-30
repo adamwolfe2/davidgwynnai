@@ -70,9 +70,9 @@ export default function TermsPage() {
           <LegalSection num="3" title="Intellectual Property">
             <p>
               All content on this Site, including text, images, graphics, logos, and the
-              PrescienceOS™, Decision Receipt™, Decision Registry, and AI Decision Rating™ (AIDR)
-              names and methodologies, are the intellectual property of AI Advisors, LLC and are
-              protected by applicable intellectual property laws.
+              PrescienceOS™, Decision Receipt™, Decision Registry, and AIDR™ (AI Decision
+              Record) names and methodologies, are the intellectual property of AI Advisors, LLC
+              and are protected by applicable intellectual property laws.
             </p>
             <p>
               You may not reproduce, distribute, modify, create derivative works of, publicly
@@ -81,9 +81,8 @@ export default function TermsPage() {
               personal, non-commercial reference purposes.
             </p>
             <p>
-              The names PrescienceOS™, Decision Receipt™, and AI Decision Rating™ are proprietary
-              marks of AI Advisors, LLC. Any unauthorized use of these marks is strictly
-              prohibited.
+              The names PrescienceOS™, Decision Receipt™, and AIDR™ are proprietary marks of
+              AI Advisors, LLC. Any unauthorized use of these marks is strictly prohibited.
             </p>
           </LegalSection>
 

@@ -7,11 +7,11 @@ import { PoweredByPrescience } from "./prescience-mark"
 /**
  * DecisionReceipt — the only boxed component on the site per CLAUDE.md.
  *
- * Live specimen: cycles through real-world decision categories (banking,
- * insurance, healthcare) with a subtle crossfade. Decision IDs tick like
- * a flight recorder counter. A muted "logged at" timestamp updates every
- * few seconds. None of the motion is flashy — the editorial brand stays
- * intact; the card is the one place "evidence on demand" can move.
+ * Rotating illustrative specimen: cycles through three decision categories
+ * (banking, insurance, healthcare) with a subtle crossfade. Explicitly marked
+ * SPECIMEN ENVIRONMENT — there is no live counter, no real-time clock, no
+ * production data. Per David's P0-3: a defensibility brand cannot imply
+ * client decision volume that doesn't exist.
  */
 
 type ReceiptRow = {
@@ -23,7 +23,6 @@ type ReceiptRow = {
 
 type Scenario = {
   id: string
-  /** Vertical label shown as the live eyebrow ("Banking" etc). */
   vertical: string
   rows: ReceiptRow[]
 }
@@ -64,22 +63,11 @@ const SCENARIOS: Scenario[] = [
   },
 ]
 
-/** Editorial counter — formats a number with thousands separators. */
-function formatCount(n: number): string {
-  return n.toLocaleString("en-US")
-}
-
-/** Pad to 2 digits for the timestamp. */
-function pad2(n: number): string {
-  return n.toString().padStart(2, "0")
-}
-
 export function DecisionReceipt() {
   const [index, setIndex] = useState(0)
-  const [counter, setCounter] = useState(184_726)
-  const [now, setNow] = useState<Date | null>(null)
 
-  // Cycle scenarios every 5s.
+  // Rotate specimens every 5s. No counter, no clock — the card is editorial,
+  // not telemetry from a production system.
   useEffect(() => {
     const id = setInterval(() => {
       setIndex((i) => (i + 1) % SCENARIOS.length)
@@ -87,45 +75,23 @@ export function DecisionReceipt() {
     return () => clearInterval(id)
   }, [])
 
-  // Tick the "decisions logged" counter on a jittered cadence (1.4–2.6s).
-  useEffect(() => {
-    let timeoutId: ReturnType<typeof setTimeout>
-    const tick = () => {
-      setCounter((c) => c + Math.floor(Math.random() * 3) + 1)
-      timeoutId = setTimeout(tick, 1400 + Math.random() * 1200)
-    }
-    timeoutId = setTimeout(tick, 1800)
-    return () => clearTimeout(timeoutId)
-  }, [])
-
-  // Live timestamp — refresh every second. Render only on the client to
-  // avoid SSR/hydration drift; falls back to "—" until mounted.
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setNow(new Date())
-    const id = setInterval(() => setNow(new Date()), 1000)
-    return () => clearInterval(id)
-  }, [])
-
   const scenario = SCENARIOS[index]
-  const timestamp = now
-    ? `${pad2(now.getHours())}:${pad2(now.getMinutes())}:${pad2(now.getSeconds())} UTC`
-    : "··:··:··"
 
   return (
     <div>
-      {/* Live status eyebrow */}
+      {/* Specimen eyebrow — explicitly illustrative, no live indicators */}
       <div
         className="flex items-center justify-between mb-2"
-        style={{ fontFamily: "var(--font-ui)", fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase" }}
+        style={{
+          fontFamily: "var(--font-ui)",
+          fontSize: 10,
+          letterSpacing: "0.18em",
+          textTransform: "uppercase",
+          fontWeight: 600,
+        }}
       >
-        <span className="flex items-center gap-2 text-red font-semibold">
-          <LivePulse />
-          Live · {scenario.vertical}
-        </span>
-        <span className="text-sand" suppressHydrationWarning>
-          {timestamp}
-        </span>
+        <span className="text-red">Illustrative · {scenario.vertical}</span>
+        <span className="text-sand">Specimen environment</span>
       </div>
 
       {/* Receipt card */}
@@ -142,7 +108,6 @@ export function DecisionReceipt() {
           Decision Receipt™ specimen
         </div>
 
-        {/* Crossfade between scenarios */}
         <div className="relative" style={{ minHeight: 180 }}>
           <AnimatePresence mode="wait">
             <motion.table
@@ -182,7 +147,8 @@ export function DecisionReceipt() {
           </AnimatePresence>
         </div>
 
-        {/* Footer counter strip */}
+        {/* Specimen footer strip — replaces the old "decisions logged · 24h"
+            counter which implied real production volume */}
         <div
           className="flex items-center justify-between px-3 py-2 border-t bg-paper-2"
           style={{
@@ -193,8 +159,10 @@ export function DecisionReceipt() {
             textTransform: "uppercase",
           }}
         >
-          <span className="text-sand">Decisions logged · 24h</span>
-          <CounterDigits value={formatCount(counter)} />
+          <span className="text-sand">Receipt format</span>
+          <span className="text-navy" style={{ fontWeight: 600 }}>
+            Examination-ready
+          </span>
         </div>
       </div>
 
@@ -202,46 +170,5 @@ export function DecisionReceipt() {
         <PoweredByPrescience />
       </div>
     </div>
-  )
-}
-
-/** Small pulsing red dot — "live" indicator. */
-function LivePulse() {
-  return (
-    <span className="relative inline-flex items-center justify-center" style={{ width: 8, height: 8 }}>
-      <motion.span
-        className="absolute inset-0 rounded-full"
-        style={{ backgroundColor: "var(--color-red)", opacity: 0.4 }}
-        animate={{ scale: [1, 2.2, 1], opacity: [0.4, 0, 0.4] }}
-        transition={{ duration: 1.8, repeat: Infinity, ease: "easeOut" }}
-      />
-      <span
-        className="relative inline-block rounded-full"
-        style={{ width: 6, height: 6, backgroundColor: "var(--color-red)" }}
-      />
-    </span>
-  )
-}
-
-/** Counter digits — fades the trailing digit when it changes so the
- *  ticker feels mechanical, not just "a number going up." */
-function CounterDigits({ value }: { value: string }) {
-  return (
-    <span className="text-navy tabular-nums" style={{ fontWeight: 600 }}>
-      <AnimatePresence mode="popLayout" initial={false}>
-        {value.split("").map((char, i) => (
-          <motion.span
-            key={`${i}-${char}`}
-            initial={{ opacity: 0, y: 6 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -6 }}
-            transition={{ duration: 0.18 }}
-            className="inline-block"
-          >
-            {char}
-          </motion.span>
-        ))}
-      </AnimatePresence>
-    </span>
   )
 }

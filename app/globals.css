@@ -120,6 +120,20 @@ body {
   }
 }
 
+/* Problem triplet — same responsive hairline logic */
+.problem-grid .problem-cell + .problem-cell {
+  border-top: 1px solid var(--color-rule);
+}
+
+@media (min-width: 768px) {
+  .problem-grid .problem-cell {
+    border-top: none;
+  }
+  .problem-grid .problem-cell:not(:last-child) {
+    border-right: 1px solid var(--color-rule);
+  }
+}
+
 /* Partner logos ticker — single row, infinite horizontal scroll.
    Array is duplicated in markup so translateX(-50%) loops seamlessly.
    Edge fade keeps the editorial calm — logos enter/exit instead of clipping.

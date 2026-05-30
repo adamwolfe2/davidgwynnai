@@ -17,9 +17,9 @@ const YOUTUBE_URL = "https://www.youtube.com/@AIAdvisors-DG"
 export default function ContactPage() {
   return (
     <div className="bg-paper">
-      {/* Header band */}
+      {/* Header band — centered on mobile, left at md+ */}
       <section className="border-b border-rule">
-        <div className="max-w-[1080px] mx-auto px-6 md:px-[34px] pt-14 md:pt-[64px] pb-12 md:pb-[52px]">
+        <div className="max-w-[1080px] mx-auto px-6 md:px-[34px] pt-16 md:pt-[64px] pb-12 md:pb-[64px] text-center md:text-left">
           <p
             style={{
               fontFamily: "var(--font-ui)",
@@ -33,7 +33,7 @@ export default function ContactPage() {
             Contact
           </p>
           <h1
-            className="text-navy mt-4 max-w-[18em]"
+            className="text-navy mt-4 max-w-[18em] mx-auto md:mx-0"
             style={{
               fontFamily: "var(--font-display)",
               fontWeight: 600,
@@ -44,13 +44,13 @@ export default function ContactPage() {
           >
             Start the conversation.
           </h1>
-          <span className="block w-[54px] h-[2px] bg-red mt-5" />
+          <span className="block w-[54px] h-[2px] bg-red mt-5 mx-auto md:mx-0" />
           <p
-            className="mt-5 max-w-[34em] text-ink-body"
+            className="mt-5 max-w-[34em] mx-auto md:mx-0 text-ink-body"
             style={{ fontFamily: "var(--font-body)", fontSize: 17, lineHeight: 1.6 }}
           >
             Every engagement begins with a conversation. Tell us about your organization and
-            we&rsquo;ll identify where AI Advisors can have the most impact — usually within one
+            we&rsquo;ll identify where AI Advisors can have the most impact, usually within one
             business day.
           </p>
         </div>

@@ -33,7 +33,7 @@ const SCENARIOS: Scenario[] = [
     id: "banking",
     vertical: "Banking",
     rows: [
-      { k: "Decision", v: "Credit denial — 4471" },
+      { k: "Decision", v: "Credit denial · 4471" },
       { k: "Rationale", v: "Captured, plain-language" },
       { k: "Model version", v: "v3.2 · logged" },
       { k: "Accountable", v: "Named officer" },
@@ -44,7 +44,7 @@ const SCENARIOS: Scenario[] = [
     id: "insurance",
     vertical: "Insurance",
     rows: [
-      { k: "Decision", v: "Claim adjudication — 88,204" },
+      { k: "Decision", v: "Claim adjudication · 88,204" },
       { k: "Rationale", v: "Captured, plain-language" },
       { k: "Model version", v: "v2.1 · logged" },
       { k: "Accountable", v: "Adjuster of record" },
@@ -55,7 +55,7 @@ const SCENARIOS: Scenario[] = [
     id: "healthcare",
     vertical: "Healthcare",
     rows: [
-      { k: "Decision", v: "Triage routing — 1.2-91" },
+      { k: "Decision", v: "Triage routing · 1.2-91" },
       { k: "Rationale", v: "Captured, plain-language" },
       { k: "Model version", v: "v4.0 · logged" },
       { k: "Accountable", v: "Clinician of record" },
@@ -110,7 +110,7 @@ export function DecisionReceipt() {
   const scenario = SCENARIOS[index]
   const timestamp = now
     ? `${pad2(now.getHours())}:${pad2(now.getMinutes())}:${pad2(now.getSeconds())} UTC`
-    : "—"
+    : "··:··:··"
 
   return (
     <div>
@@ -139,7 +139,7 @@ export function DecisionReceipt() {
             textTransform: "uppercase",
           }}
         >
-          Decision Receipt™ — specimen
+          Decision Receipt™ specimen
         </div>
 
         {/* Crossfade between scenarios */}

@@ -39,11 +39,11 @@ const plexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.aiadvisorsllc.com"),
   title: {
-    default: "AI Advisors, LLC — The Flight Recorder for Your AI Decisions",
+    default: "AI Advisors, LLC. The Flight Recorder for Your AI Decisions",
     template: "%s | AI Advisors, LLC",
   },
   description:
-    "AI Advisors, LLC builds Decision Defensibility Infrastructure for General Counsel, Chief Risk Officers, compliance leaders, and boards in banks, insurers, and health systems — so when the scrutiny comes, the record is already there.",
+    "AI Advisors, LLC builds Decision Defensibility Infrastructure for General Counsel, Chief Risk Officers, compliance leaders, and boards in banks, insurers, and health systems, so when the scrutiny comes, the record is already there.",
   alternates: {
     canonical: "/",
   },
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     "regulated industries AI",
   ],
   openGraph: {
-    title: "AI Advisors, LLC — The Flight Recorder for Your AI Decisions",
+    title: "AI Advisors, LLC. The Flight Recorder for Your AI Decisions",
     description:
       "Decision Defensibility Infrastructure for banks, insurers, and health systems.",
     url: "https://www.aiadvisorsllc.com",
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI Advisors, LLC — The Flight Recorder for Your AI Decisions",
+    title: "AI Advisors, LLC. The Flight Recorder for Your AI Decisions",
     description:
       "Decision Defensibility Infrastructure for banks, insurers, and health systems.",
     images: ["/og-image.png"],

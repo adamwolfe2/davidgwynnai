@@ -8,9 +8,9 @@ export function Footer() {
   return (
     <footer className="bg-navy text-white mt-auto">
       {/* Brand row — descriptor only; final CTA above carries the action */}
-      <div className="max-w-[1080px] mx-auto px-6 md:px-[34px] pt-10 pb-6 border-t border-white/15">
+      <div className="max-w-[1080px] mx-auto px-6 md:px-[34px] pt-12 md:pt-10 pb-8 md:pb-6 border-t border-white/15 text-center md:text-left">
         <p
-          className="max-w-[36em]"
+          className="max-w-[36em] mx-auto md:mx-0"
           style={{
             fontFamily: "var(--font-body)",
             fontSize: 14,
@@ -25,7 +25,7 @@ export function Footer() {
       {/* Link rows */}
       <div className="border-t border-white/15">
         <div
-          className="max-w-[1080px] mx-auto px-6 md:px-[34px] py-6 grid grid-cols-2 md:grid-cols-4 gap-6"
+          className="max-w-[1080px] mx-auto px-6 md:px-[34px] py-8 md:py-6 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6 text-center md:text-left"
           style={{ fontFamily: "var(--font-ui)", fontSize: 13 }}
         >
           <div>
@@ -105,7 +105,7 @@ export function Footer() {
       {/* Disclaimer + © */}
       <div className="border-t border-white/15">
         <div
-          className="max-w-[1080px] mx-auto px-6 md:px-[34px] py-5 space-y-2"
+          className="max-w-[1080px] mx-auto px-6 md:px-[34px] py-6 md:py-5 space-y-3 text-center md:text-left"
           style={{ fontFamily: "var(--font-ui)", fontSize: 11, color: "rgba(255,255,255,0.5)" }}
         >
           <p className="leading-relaxed">

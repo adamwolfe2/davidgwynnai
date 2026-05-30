@@ -5,7 +5,7 @@ import { LegalHeader, LegalSection } from "@/components/marketing/legal-section"
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "Privacy Policy for AI Advisors, LLC — how we collect, use, and protect your information.",
+    "Privacy Policy for AI Advisors, LLC. How we collect, use, and protect your information.",
   alternates: { canonical: "/privacy" },
 }
 
@@ -37,7 +37,7 @@ export default function PrivacyPage() {
               </li>
               <li>
                 <strong>Business Information:</strong> Details about your organization, industry,
-                AI systems in use, and governance challenges — shared voluntarily during
+                AI systems in use, and governance challenges, shared voluntarily during
                 consultations or assessments.
               </li>
               <li>

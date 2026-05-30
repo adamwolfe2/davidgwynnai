@@ -1,69 +1,77 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #ffffff;
-  --color-foreground: #292929;
-  --color-muted: #f0f6ff;
-  --color-muted-foreground: #578cff;
-  --color-border: #e2e8f0;
-  --color-primary: #578cff;
-  --color-primary-foreground: #ffffff;
-  --color-navy: #292929;
-  --color-light-blue: #9cc3ff;
-  --color-sky: #f0f6ff;
-  --color-accent: #578cff;
+  /* Editorial color tokens — "BCG meets Economist" */
+  --color-navy: #1B2A4A;
+  --color-paper: #F6F3EB;
+  --color-paper-2: #EFEBDF;
+  --color-red: #C8102E;
+  --color-red-soft: #E5536A;
+  --color-ink-body: #3A4355;
+  --color-sand: #8A8170;
+  --color-rule: #DAD5C7;
+  --color-white: #FFFFFF;
 
-  --font-sans: "Inter", "Helvetica Neue", Helvetica, Arial, ui-sans-serif, system-ui, sans-serif;
+  /* Semantic aliases */
+  --color-background: #F6F3EB;
+  --color-foreground: #1B2A4A;
+  --color-border: #DAD5C7;
+  --color-muted: #EFEBDF;
+  --color-muted-foreground: #8A8170;
+  --color-primary: #1B2A4A;
+  --color-primary-foreground: #FFFFFF;
+  --color-accent: #C8102E;
+
+  /* Font stacks — variables wired in layout.tsx */
+  --font-display: var(--font-newsreader), Georgia, "Times New Roman", serif;
+  --font-body: var(--font-source-serif), Georgia, serif;
+  --font-ui: var(--font-inter), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: var(--font-plex-mono), "IBM Plex Mono", "Courier New", monospace;
+  --font-sans: var(--font-inter), "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
+  background: var(--color-paper);
 }
 
 body {
-  font-family: var(--font-sans);
-  background: var(--color-background);
-  color: var(--color-foreground);
+  font-family: var(--font-body);
+  background: var(--color-paper);
+  color: var(--color-ink-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Hero: very subtle sky-blue at top fading to white */
-.hero-gradient {
-  background: linear-gradient(180deg, #dce8ff 0%, #eef4ff 25%, #f5f8ff 55%, #ffffff 100%);
+/* Editorial utilities used across sections */
+.eyebrow {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-red);
+  font-weight: 600;
 }
 
-/* Dark gradient for quiz/CTA accent sections */
-.hero-gradient-dark {
-  background: linear-gradient(135deg, #0a1628 0%, #1a3a6e 50%, #578cff 100%);
+.eyebrow-muted {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-sand);
+  font-weight: 600;
 }
 
-/* CTA gradient: light blue → brand blue */
-.cta-gradient {
-  background: linear-gradient(135deg, #578cff 0%, #9cc3ff 100%);
+.rule-red {
+  width: 54px;
+  height: 2px;
+  background: var(--color-red);
+  display: block;
 }
 
-/* Inverse CTA: light to dark blue */
-.cta-gradient-inv {
-  background: linear-gradient(135deg, #9cc3ff 0%, #578cff 100%);
-}
-
-.text-gradient {
-  background: linear-gradient(135deg, #578cff 0%, #9cc3ff 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.bg-dot-grid {
-  background-image: radial-gradient(circle, #c8d9ff 1px, transparent 1px);
-  background-size: 24px 24px;
-}
-
-.card-hover {
-  transition: box-shadow 0.2s, transform 0.2s;
-}
-.card-hover:hover {
-  box-shadow: 0 8px 32px rgba(87, 140, 255, 0.15);
-  transform: translateY(-2px);
+/* Accessible focus rings — never rely on color alone */
+:where(a, button, [role="button"], input, textarea, select):focus-visible {
+  outline: 2px solid var(--color-red);
+  outline-offset: 2px;
+  border-radius: 2px;
 }

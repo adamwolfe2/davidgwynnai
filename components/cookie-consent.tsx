@@ -90,13 +90,14 @@ export default function CookieConsent() {
         <button
           type="button"
           onClick={() => handleChoice("rejected")}
-          className="flex-1 px-4 py-2.5 text-navy hover:bg-paper-2 transition-colors"
+          className="flex-1 px-4 text-navy hover:bg-paper-2 transition-colors"
           style={{
             border: "1px solid var(--color-rule)",
             fontFamily: "var(--font-ui)",
             fontSize: 12,
             letterSpacing: "0.03em",
             fontWeight: 600,
+            minHeight: 44,
           }}
         >
           Reject
@@ -104,12 +105,13 @@ export default function CookieConsent() {
         <button
           type="button"
           onClick={() => handleChoice("accepted")}
-          className="flex-1 px-4 py-2.5 bg-navy text-white hover:bg-[#0f1d36] transition-colors"
+          className="flex-1 px-4 bg-navy text-white hover:bg-[#0f1d36] transition-colors"
           style={{
             fontFamily: "var(--font-ui)",
             fontSize: 12,
             letterSpacing: "0.03em",
             fontWeight: 600,
+            minHeight: 44,
           }}
         >
           Accept all

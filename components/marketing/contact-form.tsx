@@ -4,13 +4,17 @@ import { useState } from "react"
 
 const FIELD_BASE_STYLE: React.CSSProperties = {
   fontFamily: "var(--font-ui)",
-  fontSize: 14,
+  // 16px prevents iOS Safari zoom-on-focus
+  fontSize: 16,
   color: "var(--color-navy)",
   backgroundColor: "var(--color-white)",
   border: "1px solid var(--color-rule)",
-  padding: "10px 12px",
+  // 12px vertical padding × 2 + 16px font + 1.4 line-height ≈ 46px — clears
+  // Apple HIG / Material 44–48px touch target
+  padding: "12px 14px",
   width: "100%",
   borderRadius: 0,
+  minHeight: 46,
 }
 
 const LABEL_STYLE: React.CSSProperties = {
@@ -221,9 +225,9 @@ export function ContactForm() {
           style={{
             ...FIELD_BASE_STYLE,
             fontFamily: "var(--font-body)",
-            fontSize: 15,
+            fontSize: 16,
             resize: "vertical",
-            minHeight: 140,
+            minHeight: 160,
           }}
           disabled={isSubmitting}
         />
@@ -247,11 +251,12 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="bg-navy text-white px-6 py-3.5 hover:bg-[#0f1d36] transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+          className="bg-navy text-white px-6 hover:bg-[#0f1d36] transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
           style={{
             fontFamily: "var(--font-ui)",
             fontSize: 13,
             letterSpacing: "0.03em",
+            minHeight: 48,
           }}
         >
           {isSubmitting ? "Sending…" : "Send Message"}

@@ -263,19 +263,24 @@ export default function HomePage() {
               why, and who owned it. We build the evidence file before anyone asks — the
               contemporaneous record that holds when policies and dashboards do not.
             </p>
-            <div className="mt-7 flex flex-wrap items-center gap-6">
+            <div className="mt-7 flex flex-col sm:flex-row sm:items-center sm:flex-wrap gap-4 sm:gap-6">
               <Link
                 href={BOOK_CALL_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-navy text-white px-5 py-3 hover:bg-[#0f1d36] transition-colors"
-                style={{ fontFamily: "var(--font-ui)", fontSize: 13, letterSpacing: "0.03em" }}
+                className="inline-flex items-center justify-center bg-navy text-white px-5 hover:bg-[#0f1d36] transition-colors w-full sm:w-auto"
+                style={{
+                  fontFamily: "var(--font-ui)",
+                  fontSize: 13,
+                  letterSpacing: "0.03em",
+                  minHeight: 48,
+                }}
               >
                 {CTA_LABEL}
               </Link>
               <Link
                 href="#how-it-works"
-                className="text-red border-b border-red pb-0.5 hover:text-[#A50C25] transition-colors"
+                className="self-start sm:self-auto text-red border-b border-red pb-0.5 hover:text-[#A50C25] transition-colors"
                 style={{ fontFamily: "var(--font-ui)", fontSize: 13 }}
               >
                 See how it works →
@@ -307,9 +312,12 @@ export default function HomePage() {
             </span>
             <span
               className="text-ink-body"
-              style={{ fontFamily: "var(--font-body)", fontSize: 14 }}
+              style={{ fontFamily: "var(--font-body)", fontSize: 14, lineHeight: 1.55 }}
             >
-              The regulatory direction is one way: evidence, on demand. <PendingTag>counsel-cleared EO N-5-26 copy</PendingTag>
+              The regulatory direction is one way: evidence, on demand.{" "}
+              <span className="inline-block mt-1 sm:mt-0">
+                <PendingTag>counsel-cleared EO N-5-26 copy</PendingTag>
+              </span>
             </span>
           </div>
         </div>
@@ -758,12 +766,23 @@ export default function HomePage() {
                 className="group border-b border-rule open:bg-paper-2/40"
               >
                 <summary
-                  className="cursor-pointer list-none py-5 flex items-start gap-5 text-navy"
-                  style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 18 }}
+                  className="cursor-pointer list-none py-6 flex items-start gap-4 sm:gap-5 text-navy"
+                  style={{
+                    fontFamily: "var(--font-display)",
+                    fontWeight: 600,
+                    fontSize: 18,
+                    minHeight: 60,
+                  }}
                 >
                   <span
-                    className="text-red mt-1 select-none"
-                    style={{ fontFamily: "var(--font-mono)", fontSize: 14 }}
+                    className="text-red flex-shrink-0 mt-0.5 select-none flex items-center justify-center"
+                    style={{
+                      fontFamily: "var(--font-mono)",
+                      fontSize: 18,
+                      width: 24,
+                      height: 24,
+                      lineHeight: 1,
+                    }}
                     aria-hidden="true"
                   >
                     <span className="group-open:hidden">+</span>

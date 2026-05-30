@@ -31,7 +31,7 @@ export function Nav() {
         <Link
           href="/"
           className="flex items-center gap-3 hover:opacity-80 transition-opacity"
-          aria-label="AI Advisors LLC — home"
+          aria-label="AI Advisors LLC home"
         >
           <Image
             src="/images/logo.avif"

@@ -73,7 +73,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 2796,
         height: 1502,
-        alt: "AI Advisors LLC — The Flight Recorder for Your AI Decisions",
+        alt: "AI Advisors LLC. The Flight Recorder for Your AI Decisions",
       },
     ],
   },

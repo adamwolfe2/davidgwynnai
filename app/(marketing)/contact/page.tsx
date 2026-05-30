@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Contact",
   description:
     "Start a conversation with AI Advisors, LLC about Decision Defensibility Infrastructure for banks, insurers, and health systems.",
+  alternates: { canonical: "/contact" },
 }
 
 const BOOK_CALL_URL =
@@ -150,7 +151,7 @@ export default function ContactPage() {
             >
               Send a message
             </p>
-            <p
+            <h2
               className="mt-3 mb-8 text-navy max-w-[22em]"
               style={{
                 fontFamily: "var(--font-display)",
@@ -161,7 +162,7 @@ export default function ContactPage() {
               }}
             >
               A short note is plenty. We&rsquo;ll write back with the right next step.
-            </p>
+            </h2>
             <ContactForm />
           </div>
         </div>

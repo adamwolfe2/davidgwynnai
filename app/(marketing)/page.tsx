@@ -160,6 +160,40 @@ function RedRule() {
   return <span className="block w-[54px] h-[2px] bg-red" />
 }
 
+/**
+ * SectionLede — the editorial "section heading" that sits below each eyebrow.
+ * Renders as <h2> for proper accessibility heading hierarchy (Lighthouse a11y),
+ * but visually keeps the Newsreader 500 / clamp(24px, 3vw, 32px) lede styling.
+ */
+function SectionLede({
+  children,
+  size = "default",
+  maxWidth = "22em",
+}: {
+  children: React.ReactNode
+  size?: "default" | "large"
+  maxWidth?: string
+}) {
+  return (
+    <h2
+      className="mt-4 text-navy"
+      style={{
+        fontFamily: "var(--font-display)",
+        fontWeight: 500,
+        fontSize:
+          size === "large"
+            ? "clamp(26px, 3.5vw, 34px)"
+            : "clamp(24px, 3vw, 32px)",
+        lineHeight: 1.18,
+        letterSpacing: "-0.01em",
+        maxWidth,
+      }}
+    >
+      {children}
+    </h2>
+  )
+}
+
 function PendingTag({ children }: { children: React.ReactNode }) {
   return (
     <span
@@ -329,19 +363,10 @@ export default function HomePage() {
       <section className="border-b border-rule">
         <div className="max-w-[1080px] mx-auto px-6 md:px-[34px] py-14 md:py-[52px]">
           <Eyebrow muted>The Problem</Eyebrow>
-          <p
-            className="mt-4 text-navy max-w-[18em]"
-            style={{
-              fontFamily: "var(--font-display)",
-              fontWeight: 500,
-              fontSize: "clamp(26px, 3.5vw, 34px)",
-              lineHeight: 1.18,
-              letterSpacing: "-0.01em",
-            }}
-          >
+          <SectionLede size="large" maxWidth="18em">
             The question isn&rsquo;t if your AI decisions will be examined. It&rsquo;s whether
             you&rsquo;ll have anything to show.
-          </p>
+          </SectionLede>
 
           <div
             className="mt-10 grid grid-cols-1 md:grid-cols-3"
@@ -394,18 +419,7 @@ export default function HomePage() {
       <section id="services" className="border-b border-rule">
         <div className="max-w-[1080px] mx-auto px-6 md:px-[34px] pt-14 md:pt-[52px]">
           <Eyebrow muted>Services</Eyebrow>
-          <p
-            className="mt-4 text-navy max-w-[22em]"
-            style={{
-              fontFamily: "var(--font-display)",
-              fontWeight: 500,
-              fontSize: "clamp(24px, 3vw, 32px)",
-              lineHeight: 1.18,
-              letterSpacing: "-0.01em",
-            }}
-          >
-            Infrastructure built to withstand scrutiny — not survive it by luck.
-          </p>
+          <SectionLede>Infrastructure built to withstand scrutiny — not survive it by luck.</SectionLede>
           <div
             className="services-grid mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
             style={{ borderTop: "1px solid var(--color-navy)" }}
@@ -474,18 +488,9 @@ export default function HomePage() {
 
           <div>
             <Eyebrow muted>About</Eyebrow>
-            <p
-              className="mt-4 text-navy"
-              style={{
-                fontFamily: "var(--font-display)",
-                fontWeight: 500,
-                fontSize: "clamp(24px, 3vw, 32px)",
-                lineHeight: 1.2,
-                letterSpacing: "-0.01em",
-              }}
-            >
+            <SectionLede maxWidth="none">
               I&rsquo;ve seen what fails under scrutiny. I&rsquo;ve built what survives it.
-            </p>
+            </SectionLede>
             <div className="mt-5">
               <RedRule />
             </div>
@@ -526,18 +531,7 @@ export default function HomePage() {
       <section id="how-it-works" className="border-b border-rule">
         <div className="max-w-[1080px] mx-auto px-6 md:px-[34px] pt-14 md:pt-[52px] pb-14 md:pb-[52px]">
           <Eyebrow muted>How It Works</Eyebrow>
-          <p
-            className="mt-4 text-navy max-w-[22em]"
-            style={{
-              fontFamily: "var(--font-display)",
-              fontWeight: 500,
-              fontSize: "clamp(24px, 3vw, 32px)",
-              lineHeight: 1.18,
-              letterSpacing: "-0.01em",
-            }}
-          >
-            From exposure to evidence — three phases, in order.
-          </p>
+          <SectionLede>From exposure to evidence — three phases, in order.</SectionLede>
           <div
             className="phases-grid mt-8 grid grid-cols-1 md:grid-cols-3"
             style={{ borderTop: "1px solid var(--color-navy)" }}
@@ -650,18 +644,7 @@ export default function HomePage() {
       <section id="testimonials" className="border-b border-rule">
         <div className="max-w-[1080px] mx-auto px-6 md:px-[34px] pt-14 md:pt-[52px] pb-8">
           <Eyebrow muted>Reviews</Eyebrow>
-          <p
-            className="mt-4 text-navy max-w-[20em]"
-            style={{
-              fontFamily: "var(--font-display)",
-              fontWeight: 500,
-              fontSize: "clamp(24px, 3vw, 32px)",
-              lineHeight: 1.18,
-              letterSpacing: "-0.01em",
-            }}
-          >
-            Credibility, built case by case.
-          </p>
+          <SectionLede maxWidth="20em">Credibility, built case by case.</SectionLede>
         </div>
         <div className="max-w-[1080px] mx-auto" style={{ borderTop: "1px solid var(--color-navy)" }}>
           {TESTIMONIALS.map((t, i) => (
@@ -747,18 +730,7 @@ export default function HomePage() {
       <section id="faq" className="border-b border-rule">
         <div className="max-w-[1080px] mx-auto px-6 md:px-[34px] py-14 md:py-[52px]">
           <Eyebrow muted>FAQ</Eyebrow>
-          <p
-            className="mt-4 text-navy max-w-[22em]"
-            style={{
-              fontFamily: "var(--font-display)",
-              fontWeight: 500,
-              fontSize: "clamp(24px, 3vw, 32px)",
-              lineHeight: 1.18,
-              letterSpacing: "-0.01em",
-            }}
-          >
-            Common questions, plainly answered.
-          </p>
+          <SectionLede>Common questions, plainly answered.</SectionLede>
           <div className="mt-8 border-t border-navy">
             {FAQ_ITEMS.map((item) => (
               <details
@@ -821,7 +793,7 @@ export default function HomePage() {
           >
             Start where the exposure is
           </p>
-          <p
+          <h2
             className="mt-4 text-white mx-auto max-w-[20em]"
             style={{
               fontFamily: "var(--font-display)",
@@ -832,7 +804,7 @@ export default function HomePage() {
             }}
           >
             Find out where you&rsquo;re exposed — before someone else does.
-          </p>
+          </h2>
           <p
             className="mt-5 mx-auto max-w-[38em]"
             style={{ fontFamily: "var(--font-body)", fontSize: 15.5, lineHeight: 1.6, color: "#C7D0E0" }}

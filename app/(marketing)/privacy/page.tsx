@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
     "Privacy Policy for AI Advisors, LLC — how we collect, use, and protect your information.",
+  alternates: { canonical: "/privacy" },
 }
 
 export default function PrivacyPage() {

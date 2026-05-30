@@ -5,6 +5,7 @@ import { LegalHeader, LegalSection } from "@/components/marketing/legal-section"
 export const metadata: Metadata = {
   title: "Terms of Service",
   description: "Terms of Service for AI Advisors, LLC.",
+  alternates: { canonical: "/terms" },
 }
 
 export default function TermsPage() {

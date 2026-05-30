@@ -44,6 +44,14 @@ export const metadata: Metadata = {
   },
   description:
     "AI Advisors, LLC builds Decision Defensibility Infrastructure for General Counsel, Chief Risk Officers, compliance leaders, and boards in banks, insurers, and health systems — so when the scrutiny comes, the record is already there.",
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+  },
   keywords: [
     "AI governance",
     "decision defensibility",

@@ -236,7 +236,7 @@ export default function HomePage() {
       {/* HERO                                                          */}
       {/* =========================================================== */}
       <section className="border-b border-rule">
-        <div className="max-w-[1080px] mx-auto px-6 md:px-[34px] pt-12 md:pt-14 pb-10 grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-10 lg:gap-[34px]">
+        <div className="max-w-[1080px] mx-auto px-6 md:px-[34px] pt-10 md:pt-14 pb-10 grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-10 lg:gap-[34px]">
           {/* Left: headline + lede + CTAs */}
           <div>
             <Eyebrow>Decision Defensibility Infrastructure</Eyebrow>
@@ -445,7 +445,9 @@ export default function HomePage() {
               alt="David W. Gwynn"
               width={520}
               height={520}
+              sizes="(min-width: 768px) 40vw, 100vw"
               unoptimized
+              priority={false}
               className="w-full h-auto object-cover object-top block"
               style={{ borderTop: "2px solid var(--color-navy)" }}
             />

@@ -37,6 +37,7 @@ const plexMono = IBM_Plex_Mono({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.aiadvisorsllc.com"),
   title: {
     default: "AI Advisors, LLC — The Flight Recorder for Your AI Decisions",
     template: "%s | AI Advisors, LLC",

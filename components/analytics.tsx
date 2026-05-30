@@ -23,6 +23,10 @@ export default function Analytics() {
   const [consent, setConsent] = useState<ConsentState>("pending")
 
   useEffect(() => {
+    // Sync once on mount with stored consent value, then listen for changes.
+    // Initial sync is required because the SSR-safe useState default is
+    // "pending" — we can't read localStorage on the server.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setConsent(readConsent())
 
     function handler() {
@@ -36,7 +40,9 @@ export default function Analytics() {
 
   return (
     <>
-      {/* Google Consent Mode v2 defaults — must run BEFORE GTM/GA */}
+      {/* Google Consent Mode v2 defaults — MUST run before GTM/GA scripts
+          load, which is the documented use case for beforeInteractive. */}
+      {/* eslint-disable-next-line @next/next/no-before-interactive-script-outside-document */}
       <Script id="consent-default" strategy="beforeInteractive">{`
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}

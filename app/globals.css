@@ -159,3 +159,56 @@ body {
     animation: none;
   }
 }
+
+/* Legal page body — Source Serif 4 with editorial typography hierarchy.
+   Used by /privacy and /terms LegalSection bodies. */
+.legal-body {
+  font-family: var(--font-body);
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: var(--color-ink-body);
+}
+
+.legal-body p {
+  margin: 0;
+}
+
+.legal-body strong {
+  color: var(--color-navy);
+  font-weight: 600;
+}
+
+.legal-body a {
+  color: var(--color-red);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+}
+
+.legal-body a:hover {
+  color: #A50C25;
+}
+
+.legal-body ul {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+}
+
+.legal-body ul li {
+  padding-left: 22px;
+  position: relative;
+}
+
+.legal-body ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 10px;
+  height: 1px;
+  background: var(--color-rule);
+}
